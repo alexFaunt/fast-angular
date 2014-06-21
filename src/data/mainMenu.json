@@ -1,0 +1,23 @@
+[
+	{
+		"id": 0,
+		"value": "HOME",
+		"path": "#/",
+		"class": "home",
+		"order": 0
+	},
+	{
+		"id": 1,
+		"value": "LEAGUES",
+		"path": "#/leagues",
+		"class": "leagues",
+		"order": 1
+	},
+	{
+		"id": 2,
+		"value": "FIXTURES",
+		"path": "#/fixtures",
+		"class": "fixtures",
+		"order": 2
+	}
+]

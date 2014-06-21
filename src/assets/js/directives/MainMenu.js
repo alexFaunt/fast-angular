@@ -8,13 +8,15 @@
 
 	var app = angular.module(window.appName);
 
-	app.directive('mainMenu', function() {
+	app.directive('mainMenu',
+		['MainMenuService',
+		function(MainMenuService) {
 	    return {
-	      	templateUrl: app.STATIC.VIEWS_PATH + 'main-menu.html',
+	      	templateUrl: app.STATIC.MODULES_PATH + 'main-menu.html',
 	      	controller: function ($scope) {
-	      		$scope.name = 'Menu stuff';
+	    		$scope.menuItems = MainMenuService.query();
 	      	}
 	    };
-	});
+	}]);
 
 })(window, angular);

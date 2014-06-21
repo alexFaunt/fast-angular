@@ -19,7 +19,7 @@
    	// app globals
     app.STATIC = {
         VIEWS_PATH: 'views/',
-        MODULES_PATH: 'viws/modules/',
+        MODULES_PATH: 'views/modules/',
         CONTROLLERS_PATH: 'controllers/'
     };
 

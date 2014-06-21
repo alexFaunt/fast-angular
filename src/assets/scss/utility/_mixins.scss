@@ -1,0 +1,22 @@
+@mixin clearfix(){
+	&:after {
+	    content: ".";
+	    display: block;
+	    clear: both;
+	    visibility: hidden;
+	    line-height: 0;
+	    height: 0;
+	}	
+}
+
+@mixin transform-transition($props, $extras: ""){
+	@if $extras == "" {
+		-webkit-transition: -webkit-transform $props;
+		-moz-transition: -webkit-transform $props;
+		transition: -webkit-transform $props;
+	}@else{
+		-webkit-transition: -webkit-transform $props, $extras;
+		-moz-transition: -webkit-transform $props, $extras;
+		transition: -webkit-transform $props, $extras;
+	}
+}

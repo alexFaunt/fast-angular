@@ -1,4 +1,12 @@
-<h1 translate="TITLE"></h1>
-<ul>
-	<li ng-repeat="team in teams">{{team.id}}: {{team.name}}</li>
-</ul>
+
+
+<div class="{{state}}">
+    <div class="page-pusher">
+        <nav data-main-menu></nav>
+        <div class="content-wrapper">
+            <header data-page-header class="page-header"></header>
+            <main data-ng-view></main>
+        </div>
+        <div class="content-overlay" data-ng-click="reset()"></div>
+    </div>
+</div>

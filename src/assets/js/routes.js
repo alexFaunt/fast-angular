@@ -15,7 +15,7 @@
 		function ($routeProvider) {
 			$routeProvider.when(
 			    '/',
-			    standardRoute('Main')
+			    standardRoute('Home')
 			)
 			.otherwise({
 			     redirectTo: app.STATIC.VIEWS_PATH + 'error.html'

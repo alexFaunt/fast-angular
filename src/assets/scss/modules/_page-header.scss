@@ -1,0 +1,21 @@
+
+.page-header {
+	position: relative;
+	padding: 0 ($standard-line-height * $h1-font-size) + $standard-padding;
+}
+
+.menu-button, .filter-button {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: $standard-line-height * $h1-font-size;
+	background: red;
+}
+
+.menu-button {
+	left: 0;
+}
+
+.filter-button {
+	right: 0;
+}

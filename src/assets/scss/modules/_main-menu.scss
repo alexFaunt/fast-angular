@@ -1,0 +1,90 @@
+
+/* layout and transition style */
+
+.page-wrapper {
+	@include perspective(1500px);
+	@include perspective-origin(0% 50%);
+	@include backface-visibility(hidden);
+}
+
+.page-pusher {
+	@include transition(transform $main-menu-transition-time);
+	@include transform-style(preserve-3d);
+	@include backface-visibility(hidden);
+
+}
+
+.content-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	background: rgba(0,0,0,0.2); // TODO
+	opacity: 0;
+	@include transition(opacity $main-menu-transition-time, width 0.1s $main-menu-transition-time, height 0.1s $main-menu-transition-time);
+}
+
+nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	visibility: hidden;
+	width: $main-menu-width;
+	height: 100%;
+	@include transition(all $main-menu-transition-time);
+	@include transform(translate3d(-100%, 0, 0) rotateY(-90deg));
+	@include transform-origin(100%, 50%);
+	@include transform-style(preserve-3d);
+	@include backface-visibility(hidden);
+	background-color: $background-medium-grey;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.2);
+		content: '';
+		opacity: 1;
+		@include transition(opacity $main-menu-transition-time);
+	}
+}
+
+.menu-open {
+	nav {
+		visibility: visible;
+		@include transition(transform $main-menu-transition-time);
+		@include transform(translate3d(-100%, 0, 0) rotateY(0deg));
+
+		&::after {
+			width: 0;
+			height: 0;
+			opacity: 0;
+			@include transition(opacity $main-menu-transition-time, width 0.1s $main-menu-transition-time, height 0.1s $main-menu-transition-time);
+		}
+	}
+
+	.page-pusher {
+		@include transform(translate3d($main-menu-width, 0, 0));
+	}
+
+	.content-overlay {
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		@include transition(opacity $main-menu-transition-time);
+	}
+}
+
+
+/* nav content style */
+
+nav {
+
+}
+
+
+

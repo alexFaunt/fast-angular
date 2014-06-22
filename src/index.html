@@ -6,14 +6,14 @@
         <meta name="HandheldFriendly" content="true" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <title>Sports Stats</title>
+        <title data-translate="TITLE"></title>
 
         <link href="assets/css/main.css" media="screen" rel="stylesheet" type="text/css">
         <script src="assets/js/lib/modernizr.js"></script>
     </head>
 	<body>
-        <nav data-main-menu></nav>
-		<div data-ng-view></div>
+        <!-- App content -->
+        <div data-page-state></div>
 
         <!-- libs -->
         <script src="assets/js/lib/angular/angular.min.js"></script>
@@ -27,14 +27,17 @@
         <script src="assets/js/routes.js"></script>
         <script src="assets/js/translations.js"></script>
 
+        <!-- modules -->
+        <script src="assets/js/modules/PageState.js"></script>
+        <script src="assets/js/modules/MainMenu.js"></script>
+
         <!-- services -->
-        <script src="assets/js/services/MainMenuService.js"></script>
         <script src="assets/js/services/TeamService.js"></script>
 
-        <!-- controllers -->
-        <script src="assets/js/controllers/MainCtrl.js"></script>
-
         <!-- directives -->
-        <script src="assets/js/directives/MainMenu.js"></script>
+        <script src="assets/js/directives/PageHeader.js"></script>
+
+        <!-- controllers -->
+        <script src="assets/js/controllers/HomeCtrl.js"></script>
 	</body>
 </html>

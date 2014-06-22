@@ -12,7 +12,10 @@
         'ngCookies',
     	window.appName + 'Services',
     	window.appName + 'Controllers',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+
+        'PageStateModule',
+        'MainMenuModule'
     ]);
 
     // TODO Could use 'app.value'

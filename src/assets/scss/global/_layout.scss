@@ -1,0 +1,44 @@
+/* Overall layout */
+
+html,
+body,
+.page-wrapper,
+.page-pusher,
+.content-wrapper {
+	height: 100%;
+}
+
+.content-wrapper {
+	overflow-y: scroll;
+	background: #f3efe0; //TODO - NO.
+}
+
+.page-wrapper,
+.page-pusher,
+.content-wrapper,
+main {
+	position: relative;
+}
+
+.page-wrapper {
+	overflow: hidden;
+}
+
+.page-pusher {
+	left: 0;
+	height: 100%;
+}
+
+
+/* layout classes */
+
+.flex-row {
+	@include flexbox();
+
+	.static {
+		@include flex-grow(0);
+	}
+	.grow {
+		@include flex-grow(1);
+	}
+}

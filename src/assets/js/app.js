@@ -15,7 +15,8 @@
         'pascalprecht.translate',
 
         'PageStateModule',
-        'MainMenuModule'
+        'MainMenuModule',
+        'FilterMenuModule'
     ]);
 
     // TODO Could use 'app.value'

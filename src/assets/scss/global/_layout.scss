@@ -22,12 +22,30 @@ main {
 
 .page-wrapper {
 	overflow: hidden;
+	@include perspective(1500px);
+	@include perspective-origin(50% 50%);
+	@include backface-visibility(hidden);
 }
 
 .page-pusher {
 	left: 0;
 	height: 100%;
+	@include transition(transform $main-menu-transition-time);
+	@include transform-style(preserve-3d);
+	@include backface-visibility(hidden);
 }
+
+.content-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	background: rgba(0,0,0,0.2); // TODO
+	opacity: 0;
+	@include transition(opacity $main-menu-transition-time, width 0.1s $main-menu-transition-time, height 0.1s $main-menu-transition-time);
+}
+
 
 
 /* layout classes */

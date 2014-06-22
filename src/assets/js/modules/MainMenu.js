@@ -73,6 +73,7 @@
 
 		    return {
 		      	templateUrl: app.STATIC.MODULES_PATH + 'main-menu.html',
+		      	replace: true,
 		      	controller: MainMenuCtrl
 		    };
 		}

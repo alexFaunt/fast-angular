@@ -1,5 +1,4 @@
-/* Base file is specifically for default element styles */
-
+/* Base style for site, elements and site wide styles */
 
 *,
 *:after,
@@ -18,3 +17,17 @@ ul {
 	list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+
+// page styles
+
+.page-wrapper {
+    background: $page-background-color;
+}
+
+.page-pusher {
+    background: $white;
+}

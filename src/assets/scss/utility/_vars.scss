@@ -1,13 +1,14 @@
 /***************** Colour Pallette ******************/
 
-$bg-white: #fff;
-$medium-grey: #444;
-$dark-grey: #222;
+    /* Grey scale */
+    $white: #fff;
+    $medium-grey: #444;
+    $dark-grey: #222;
 
-
-/***************** Global ***************************/
-
-$standard-text-color: $dark-grey;
+    /* Colours */
+    $dark-blue: #1A477A;
+    $medium-blue: #97C4F7;
+    $light-blue: #D1D5E6;
 
 
 /***************** Layout ***************************/
@@ -18,24 +19,41 @@ $page-max-width: 1000px;
 
 /***************** Typography ***********************/
 
-$standard-line-height: 1.4;
+$standard-line-height: 1.2;
 $h1-font-size: 2em;
 $h2-font-size: 1.6em;
 $h3-font-size: 1.4em;
 $h4-font-size: 1.2em;
 
+$standard-text-color: $dark-grey;
+$inverted-text-color: $white;
+
 
 /**************** Backgrounds ***************************/
 
 $background-medium-grey: $medium-grey;
+$page-background-color: #333;
 
+
+/**************** Global ****************************/
+
+    /* Buttons */
+    $link-hover-transition-time: 0.3s;
+    $link-hover-delay-time: 0.1s;
 
 
 /**************** Modules ***************************/
 
 	/* Main Menu */
 	$main-menu-transition-time: 0.5s;
-	$main-menu-width: 300px;
+	$main-menu-width: 300px; // TODO - do dynamically? maybe
+    $main-menu-background-color: $dark-blue;
+
+    /* Filters Menu */
+    $filter-menu-transition-time: 0.5s;
+    $filter-menu-width: 300px;
+    $filter-menu-background-color: $medium-blue;
+
 
 
 /***************** Icons ****************************/

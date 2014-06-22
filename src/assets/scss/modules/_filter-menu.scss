@@ -7,14 +7,13 @@
 	right: 0;
 	z-index: 100;
 	visibility: hidden;
-	width: $main-menu-width;
+	width: $filter-menu-width;
 	height: 100%;
-	@include transition(all $main-menu-transition-time);
+	@include transition(all $filter-menu-transition-time);
 	@include transform(translate3d(100%, 0, 0) rotateY(79deg));
 	@include transform-origin(0, 50%); //eafefafeaf
 	@include transform-style(preserve-3d);
 	@include backface-visibility(hidden);
-	background-color: $background-medium-grey;
 
 	&::after {
 		position: absolute;
@@ -25,34 +24,41 @@
 		background: rgba(0,0,0,0.2);
 		content: '';
 		opacity: 1;
-		@include transition(opacity $main-menu-transition-time);
+		@include transition(opacity $filter-menu-transition-time);
 	}
 }
 
 .filters-open {
 	.filter-menu {
 		visibility: visible;
-		@include transition(transform $main-menu-transition-time);
+		@include transition(transform $filter-menu-transition-time);
 		@include transform(translate3d(100%, 0, 0) rotateY(0deg));
 
 		&::after {
 			width: 0;
 			height: 0;
 			opacity: 0;
-			@include transition(opacity $main-menu-transition-time, width 0.1s $main-menu-transition-time, height 0.1s $main-menu-transition-time);
+			@include transition(opacity $filter-menu-transition-time, width 0.1s $filter-menu-transition-time, height 0.1s $filter-menu-transition-time);
 		}
 	}
 
 	.page-pusher {
-		@include transform(translate3d(-$main-menu-width, 0, 0));
+		@include transform(translate3d(-$filter-menu-width, 0, 0));
 	}
 
 	.content-overlay {
 		width: 100%;
 		height: 100%;
 		opacity: 1;
-		@include transition(opacity $main-menu-transition-time);
+		@include transition(opacity $filter-menu-transition-time);
 	}
+}
+
+// Styling
+
+.filter-menu {
+	background-color: $filter-menu-background-color;
+
 }
 
 

@@ -10,7 +10,6 @@ body,
 
 .content-wrapper {
 	overflow-y: scroll;
-	background: #f3efe0; //TODO - NO.
 }
 
 .page-wrapper,
@@ -41,7 +40,7 @@ main {
 	right: 0;
 	width: 0;
 	height: 0;
-	background: rgba(0,0,0,0.2); // TODO
+	background: rgba(0,0,0,0.2); // TODO variablize
 	opacity: 0;
 	@include transition(opacity $main-menu-transition-time, width 0.1s $main-menu-transition-time, height 0.1s $main-menu-transition-time);
 }

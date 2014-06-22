@@ -1,21 +1,21 @@
 [
 	{
 		"id": 0,
-		"value": "HOME",
+		"value": "Home",
 		"path": "#/",
 		"class": "home",
 		"order": 0
 	},
 	{
 		"id": 1,
-		"value": "LEAGUES",
+		"value": "Leagues",
 		"path": "#/leagues",
 		"class": "leagues",
 		"order": 1
 	},
 	{
 		"id": 2,
-		"value": "FIXTURES",
+		"value": "Fixtures",
 		"path": "#/fixtures",
 		"class": "fixtures",
 		"order": 2

@@ -4,12 +4,14 @@ html,
 body,
 .page-wrapper,
 .page-pusher,
-.content-wrapper {
+.content-wrapper,
+main {
 	height: 100%;
 }
 
 .content-wrapper {
-	overflow-y: scroll;
+	overflow: hidden;
+	padding-top: $h1-font-size * $standard-line-height;
 }
 
 .page-wrapper,

@@ -547,21 +547,23 @@ h4 {
 }
 
 /* Overall layout */
-/* line 7, ../scss/global/_layout.scss */
+/* line 8, ../scss/global/_layout.scss */
 html,
 body,
 .page-wrapper,
 .page-pusher,
-.content-wrapper {
+.content-wrapper,
+main {
   height: 100%;
 }
 
-/* line 11, ../scss/global/_layout.scss */
+/* line 12, ../scss/global/_layout.scss */
 .content-wrapper {
-  overflow-y: scroll;
+  overflow: hidden;
+  padding-top: 2.4em;
 }
 
-/* line 18, ../scss/global/_layout.scss */
+/* line 20, ../scss/global/_layout.scss */
 .page-wrapper,
 .page-pusher,
 .content-wrapper,
@@ -569,7 +571,7 @@ main {
   position: relative;
 }
 
-/* line 22, ../scss/global/_layout.scss */
+/* line 24, ../scss/global/_layout.scss */
 .page-wrapper {
   overflow: hidden;
   -webkit-perspective: 1500px;
@@ -589,7 +591,7 @@ main {
   backface-visibility: hidden;
 }
 
-/* line 29, ../scss/global/_layout.scss */
+/* line 31, ../scss/global/_layout.scss */
 .page-pusher {
   left: 0;
   height: 100%;
@@ -609,7 +611,7 @@ main {
   backface-visibility: hidden;
 }
 
-/* line 37, ../scss/global/_layout.scss */
+/* line 39, ../scss/global/_layout.scss */
 .content-overlay {
   position: absolute;
   top: 0;
@@ -626,7 +628,7 @@ main {
 }
 
 /* layout classes */
-/* line 52, ../scss/global/_layout.scss */
+/* line 54, ../scss/global/_layout.scss */
 .flex-row {
   display: -webkit-box;
   display: -moz-box;
@@ -635,14 +637,14 @@ main {
   display: flex;
   display: -ms-flexbox;
 }
-/* line 55, ../scss/global/_layout.scss */
+/* line 57, ../scss/global/_layout.scss */
 .flex-row .static {
   -webkit-flex-grow: 0;
   -moz-flex-grow: 0;
   flex-grow: 0;
   -ms-flex-positive: 0;
 }
-/* line 58, ../scss/global/_layout.scss */
+/* line 60, ../scss/global/_layout.scss */
 .flex-row .grow {
   -webkit-flex-grow: 1;
   -moz-flex-grow: 1;
@@ -659,11 +661,14 @@ button {
 
 /* line 2, ../scss/modules/_page-header.scss */
 .page-header {
-  position: relative;
   padding: 0 3.4em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
-/* line 7, ../scss/modules/_page-header.scss */
+/* line 10, ../scss/modules/_page-header.scss */
 .menu-button, .context-menu-button {
   position: absolute;
   top: 0;
@@ -672,12 +677,12 @@ button {
   background: red;
 }
 
-/* line 15, ../scss/modules/_page-header.scss */
+/* line 18, ../scss/modules/_page-header.scss */
 .menu-button {
   left: 0;
 }
 
-/* line 19, ../scss/modules/_page-header.scss */
+/* line 22, ../scss/modules/_page-header.scss */
 .context-menu-button {
   right: 0;
 }

@@ -1,7 +1,10 @@
 
 .page-header {
-	position: relative;
 	padding: 0 ($standard-line-height * $h1-font-size) + $standard-padding;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .menu-button, .context-menu-button {

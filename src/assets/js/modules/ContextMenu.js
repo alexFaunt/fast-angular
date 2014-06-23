@@ -8,10 +8,10 @@
 
     var app = angular.module(window.appName);
 
-    var FilterMenuModule = angular.module('FilterMenuModule', []);
+    var ContextMenuModule = angular.module('ContextMenuModule', []);
 
     /* Api for interaction with other components of app */
-    FilterMenuModule.factory('FilterMenuApi', function() {
+    ContextMenuModule.factory('ContextMenuApi', function() {
         return {
             isOpen: false,
             open: function() {
@@ -27,39 +27,39 @@
     });
 
     /* definition and control */
-    FilterMenuModule.directive('filterMenu',
+    ContextMenuModule.directive('contextMenu',
         function() {
 
-            var FilterMenuCtrl = function ($scope, FilterMenuApi, PageStateApi) {
+            var ContextMenuCtrl = function ($scope, ContextMenuApi, PageStateApi) {
 
-                $scope.FilterMenuApi = FilterMenuApi;
+                $scope.ContextMenuApi = ContextMenuApi;
 
                 PageStateApi.registerState({
-                    id: 'FILTERS_OPEN',
-                    klass: 'filters-open',
+                    id: 'CONTEXT_MENU_OPEN',
+                    klass: 'context-menu-open',
                     reset: function () {
-                        FilterMenuApi.close();
+                        ContextMenuApi.close();
                     }
                 });
 
-                $scope.$watch('FilterMenuApi.isOpen', function (newValue, oldValue) {
+                $scope.$watch('ContextMenuApi.isOpen', function (newValue, oldValue) {
                     if (newValue === oldValue) {
                         return;
                     }
                     if (newValue) {
-                        PageStateApi.addState(PageStateApi.STATES.FILTERS_OPEN);
+                        PageStateApi.addState(PageStateApi.STATES.CONTEXT_MENU_OPEN);
                     }
                     else {
-                        PageStateApi.removeState(PageStateApi.STATES.FILTERS_OPEN);
+                        PageStateApi.removeState(PageStateApi.STATES.CONTEXT_MENU_OPEN);
                     }
                 });
             };
 
 
             return {
-                templateUrl: app.STATIC.MODULES_PATH + 'filter-menu.html',
+                templateUrl: app.STATIC.MODULES_PATH + 'context-menu.html',
                 replace: true,
-                controller: FilterMenuCtrl
+                controller: ContextMenuCtrl
             };
         }
     );

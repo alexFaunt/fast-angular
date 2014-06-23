@@ -10,15 +10,15 @@
 
 	app.directive('pageHeader', function() {
 
-		var PageHeaderCtrl = function ($scope, MainMenuApi, FilterMenuApi) {
+		var PageHeaderCtrl = function ($scope, MainMenuApi, ContextMenuApi) {
         	this.scope = $scope;
 
 	        this.scope.openMainMenu = function () {
 	        	MainMenuApi.open();
 	        };
 
-	        this.scope.openFilterMenu = function () {
-	        	FilterMenuApi.open();
+	        this.scope.openContextMenu = function () {
+	        	ContextMenuApi.open();
 	        };
 	    };
 

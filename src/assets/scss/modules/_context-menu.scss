@@ -1,15 +1,15 @@
 
 /* layout and transition style */
 
-.filter-menu {
+.context-menu {
 	position: absolute;
 	top: 0;
 	right: 0;
 	z-index: 100;
 	visibility: hidden;
-	width: $filter-menu-width;
+	width: $context-menu-width;
 	height: 100%;
-	@include transition(all $filter-menu-transition-time);
+	@include transition(all $context-menu-transition-time);
 	@include transform(translate3d(100%, 0, 0) rotateY(79deg));
 	@include transform-origin(0, 50%); //eafefafeaf
 	@include transform-style(preserve-3d);
@@ -24,40 +24,40 @@
 		background: rgba(0,0,0,0.2);
 		content: '';
 		opacity: 1;
-		@include transition(opacity $filter-menu-transition-time);
+		@include transition(opacity $context-menu-transition-time);
 	}
 }
 
-.filters-open {
-	.filter-menu {
+.context-menu-open {
+	.context-menu {
 		visibility: visible;
-		@include transition(transform $filter-menu-transition-time);
+		@include transition(transform $context-menu-transition-time);
 		@include transform(translate3d(100%, 0, 0) rotateY(0deg));
 
 		&::after {
 			width: 0;
 			height: 0;
 			opacity: 0;
-			@include transition(opacity $filter-menu-transition-time, width 0.1s $filter-menu-transition-time, height 0.1s $filter-menu-transition-time);
+			@include transition(opacity $context-menu-transition-time, width 0.1s $context-menu-transition-time, height 0.1s $context-menu-transition-time);
 		}
 	}
 
 	.page-pusher {
-		@include transform(translate3d(-$filter-menu-width, 0, 0));
+		@include transform(translate3d(-$context-menu-width, 0, 0));
 	}
 
 	.content-overlay {
 		width: 100%;
 		height: 100%;
 		opacity: 1;
-		@include transition(opacity $filter-menu-transition-time);
+		@include transition(opacity $context-menu-transition-time);
 	}
 }
 
 // Styling
 
-.filter-menu {
-	background-color: $filter-menu-background-color;
+.context-menu {
+	background-color: $context-menu-background-color;
 
 }
 

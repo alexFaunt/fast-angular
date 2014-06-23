@@ -16,7 +16,7 @@
 
         'PageStateModule',
         'MainMenuModule',
-        'FilterMenuModule'
+        'ContextMenuModule'
     ]);
 
     // TODO Could use 'app.value'

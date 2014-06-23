@@ -13,10 +13,12 @@
 
 	app.config(['$routeProvider',
 		function ($routeProvider) {
-			$routeProvider.when(
-			    '/',
+			$routeProvider.when('/',
 			    standardRoute('Home')
 			)
+            .when('/leagues',
+                standardRoute('Leagues')
+            )
 			.otherwise({
 			     redirectTo: app.STATIC.VIEWS_PATH + 'error.html'
 			});

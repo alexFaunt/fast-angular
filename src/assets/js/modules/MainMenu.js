@@ -68,6 +68,10 @@
 		        		PageStateApi.removeState(PageStateApi.STATES.MENU_OPEN);
 		        	}
 		        });
+
+	            $scope.closeMenu = function () {
+	            	MainMenuApi.close();
+	            };
 		    };
 
 

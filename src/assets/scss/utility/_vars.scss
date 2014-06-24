@@ -49,7 +49,10 @@ $page-background-color: #333;
 	$main-menu-width: 300px; // TODO - do dynamically? maybe
     $main-menu-background-color: $dark-blue;
 
-    /* Filters Menu */
+    /* Page Header */
+    $page-header-height: $h1-font-size * $standard-line-height;
+
+    /* Context Menu */
     $context-menu-transition-time: 0.5s;
     $context-menu-width: 300px;
     $context-menu-background-color: $medium-blue;

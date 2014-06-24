@@ -1,0 +1,60 @@
+
+{
+    "id": 0,
+    "name": "England",
+    "location": "United Kingdom",
+    "stadium": "Wembley, London",
+    "manager": "Roy Hodgson",
+    "coach": "Gary Neville",
+    "images": {
+        "logo": {
+            "url": "http://placekitten.com/300/300",
+            "alt": "England logo"
+        },
+        "icon": {
+            "url": "http://placekitten.com/64/64",
+            "alt": "England icon"
+        },
+        "gallery": [
+            {
+                "url": "http://placekitten.com/200/300",
+                "alt": "gallery pic 1"
+            },
+            {
+                "url": "http://placekitten.com/200/300",
+                "alt": "gallery pic 2"
+            }
+        ]
+    },
+    "leagues": [
+        {
+            "id": 0,
+            "name": "2014 World Cup Finals Group E",
+            "country": "Brazil",
+            "url": "#/leagues/0",
+            "rows": [
+                {
+                    "id": 1,
+                    "teamName": "Any other team",
+                    "games": 3,
+                    "points": 6
+                },
+                {
+                    "id": 2,
+                    "teamName": "Any other team",
+                    "games": 3,
+                    "points": 6
+                },
+                {
+                    "id": 0,
+                    "teamName": "Any other team",
+                    "games": 3,
+                    "points": 6
+                }
+
+            ]
+        }
+    ],
+    "fixtures": [],
+    "team": []
+}

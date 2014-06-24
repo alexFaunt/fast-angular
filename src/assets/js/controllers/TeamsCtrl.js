@@ -1,6 +1,6 @@
 
 /**
- * Leagues Controller
+ * Teams Controller
  */
 
 ;(function (window, angular) {
@@ -8,7 +8,7 @@
 
     var app = angular.module(window.appName);
 
-    angular.module(app.name + 'Controllers').controller('LeaguesCtrl',
+    angular.module(app.name + 'Controllers').controller('TeamsCtrl',
         ['$scope',
         function ($scope) {
 

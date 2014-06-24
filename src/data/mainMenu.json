@@ -19,5 +19,12 @@
 		"path": "#/fixtures",
 		"class": "fixtures",
 		"order": 2
+	},
+	{
+		"id": 3,
+		"value": "Teams",
+		"path": "#/teams",
+		"class": "teams",
+		"order": 3
 	}
 ]

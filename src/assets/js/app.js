@@ -6,7 +6,7 @@
 	'use strict';
 
     // Application setup with required modules
-	window.appName = 'sportstats';
+	window.appName = 'fast';
     var app = angular.module(window.appName, [
     	'ngRoute',
         'ngCookies',

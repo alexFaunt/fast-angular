@@ -31,7 +31,6 @@ main {
 .page-pusher {
 	left: 0;
 	height: 100%;
-	@include transition(transform $main-menu-transition-time);
 	@include transform-style(preserve-3d);
 	@include backface-visibility(hidden);
 }

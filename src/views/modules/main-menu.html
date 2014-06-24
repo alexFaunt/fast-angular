@@ -1,7 +1,7 @@
 <nav>
     <ul>
     	<li data-ng-repeat="item in menuItems">
-    		<a data-ng-href="{{item.path}}" ng-click="closeMenu()" data-translate="{{item.value}}" class="light-hover {{item.class}}"></a>
+    		<a data-ng-href="{{item.path}}" ng-click="closeMenu()" data-translate="{{item.value}}" class="{{item.class}}"></a>
     	</li>
     </ul>
 </nav>

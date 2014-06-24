@@ -385,14 +385,15 @@ table {
 /***************** Colour Pallette ******************/
 /* Grey scale */
 /* Colours */
+/* global colours */
 /***************** Layout ***************************/
 /***************** Typography ***********************/
 /**************** Backgrounds ***************************/
 /**************** Global ****************************/
 /* Buttons */
 /**************** Modules ***************************/
-/* Main Menu */
 /* Page Header */
+/* Main Menu */
 /* Context Menu */
 /***************** Icons ****************************/
 /***************** Spacing *****************************/
@@ -596,10 +597,6 @@ main {
 .page-pusher {
   left: 0;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  -o-transition: -o-transform 0.5s;
-  transition: transform 0.5s;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -612,7 +609,7 @@ main {
   backface-visibility: hidden;
 }
 
-/* line 39, ../scss/global/_layout.scss */
+/* line 38, ../scss/global/_layout.scss */
 .content-overlay {
   position: absolute;
   top: 0;
@@ -629,7 +626,7 @@ main {
 }
 
 /* layout classes */
-/* line 54, ../scss/global/_layout.scss */
+/* line 53, ../scss/global/_layout.scss */
 .flex-row {
   display: -webkit-box;
   display: -moz-box;
@@ -638,14 +635,14 @@ main {
   display: flex;
   display: -ms-flexbox;
 }
-/* line 57, ../scss/global/_layout.scss */
+/* line 56, ../scss/global/_layout.scss */
 .flex-row .static {
   -webkit-flex-grow: 0;
   -moz-flex-grow: 0;
   flex-grow: 0;
   -ms-flex-positive: 0;
 }
-/* line 60, ../scss/global/_layout.scss */
+/* line 59, ../scss/global/_layout.scss */
 .flex-row .grow {
   -webkit-flex-grow: 1;
   -moz-flex-grow: 1;
@@ -689,24 +686,22 @@ button {
 }
 
 /* layout and transition style */
-/* line 4, ../scss/modules/_main-menu.scss */
+/* line 5, ../scss/modules/_main-menu.scss */
 nav {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 100;
-  visibility: hidden;
-  width: 300px;
   height: 100%;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-79deg);
-  -moz-transform: translate3d(-100%, 0, 0) rotateY(-79deg);
-  -ms-transform: translate3d(-100%, 0, 0) rotateY(-79deg);
-  -o-transform: translate3d(-100%, 0, 0) rotateY(-79deg);
-  transform: translate3d(-100%, 0, 0) rotateY(-79deg);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
   -webkit-transform-origin: 100% 50%;
   -moz-transform-origin: 100% 50%;
   -ms-transform-origin: 100% 50%;
@@ -723,55 +718,51 @@ nav {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
 /* line 18, ../scss/modules/_main-menu.scss */
-nav::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  content: '';
-  opacity: 1;
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  -o-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+.page-pusher {
+  -webkit-transition: -webkit-transform 0.5s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition: -moz-transform 0.5s 0.1s;
+  -o-transition: -o-transform 0.5s 0.1s;
+  transition: transform 0.5s 0.1s;
 }
 
-/* line 32, ../scss/modules/_main-menu.scss */
+/* line 22, ../scss/modules/_main-menu.scss */
+.content-overlay {
+  -webkit-transition: opacity 0.5s, width 0s, height 0s;
+  -webkit-transition-delay: 0.1s, 0.6s, 0.6s;
+  -moz-transition: opacity 0.5s 0.1s, width 0s 0.6s, height 0s 0.6s;
+  -o-transition: opacity 0.5s 0.1s, width 0s 0.6s, height 0s 0.6s;
+  transition: opacity 0.5s 0.1s, width 0s 0.6s, height 0s 0.6s;
+}
+
+/* line 29, ../scss/modules/_main-menu.scss */
 .menu-open nav {
-  visibility: visible;
+  -webkit-transition: -webkit-transform 0.5s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition: -moz-transform 0.5s 0.1s;
+  -o-transition: -o-transform 0.5s 0.1s;
+  transition: transform 0.5s 0.1s;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/* line 34, ../scss/modules/_main-menu.scss */
+.menu-open .page-pusher {
+  -webkit-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -moz-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -ms-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  -o-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  transform: translate3d(100px, 0, -600px) rotateY(-20deg);
   -webkit-transition: -webkit-transform 0.5s;
   -moz-transition: -moz-transform 0.5s;
   -o-transition: -o-transform 0.5s;
   transition: transform 0.5s;
-  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -o-transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  transform: translate3d(-100%, 0, 0) rotateY(0deg);
 }
-/* line 37, ../scss/modules/_main-menu.scss */
-.menu-open nav::after {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s, width 0.1s, height 0.1s;
-  -webkit-transition-delay: 0s, 0.5s, 0.5s;
-  -moz-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-  -o-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-}
-/* line 45, ../scss/modules/_main-menu.scss */
-.menu-open .page-pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-  -moz-transform: translate3d(300px, 0, 0);
-  -ms-transform: translate3d(300px, 0, 0);
-  -o-transform: translate3d(300px, 0, 0);
-  transform: translate3d(300px, 0, 0);
-}
-/* line 49, ../scss/modules/_main-menu.scss */
+/* line 39, ../scss/modules/_main-menu.scss */
 .menu-open .content-overlay {
   width: 100%;
   height: 100%;
@@ -783,22 +774,55 @@ nav::after {
 }
 
 /* appearance style */
-/* line 59, ../scss/modules/_main-menu.scss */
+/* line 50, ../scss/modules/_main-menu.scss */
 nav {
-  background-color: #1a477a;
+  width: 200px;
   text-align: center;
 }
-/* line 63, ../scss/modules/_main-menu.scss */
-nav li {
-  border-bottom: 1px solid white;
+/* line 55, ../scss/modules/_main-menu.scss */
+nav::before {
+  content: '';
+  position: absolute;
+  background: #dddddd;
+  width: 80%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+  -webkit-box-shadow: 1px -4px 14px -6px black;
+  -moz-box-shadow: 1px -4px 14px -6px black;
+  box-shadow: 1px -4px 14px -6px black;
 }
 /* line 67, ../scss/modules/_main-menu.scss */
+nav li {
+  margin-top: 1em;
+}
+/* line 71, ../scss/modules/_main-menu.scss */
 nav a {
   display: block;
   position: relative;
   padding: 1.2em 1em 1em;
   color: white;
   text-transform: uppercase;
+  background-color: #ab0d0d;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ab0d0d), color-stop(15%, #ab0d0d), color-stop(100%, #800b0b));
+  background-image: -webkit-linear-gradient(top, #ab0d0d 0%, #ab0d0d 15%, #800b0b 100%);
+  background-image: -moz-linear-gradient(top, #ab0d0d 0%, #ab0d0d 15%, #800b0b 100%);
+  background-image: -o-linear-gradient(top, #ab0d0d 0%, #ab0d0d 15%, #800b0b 100%);
+  background-image: linear-gradient(top, #ab0d0d 0%, #ab0d0d 15%, #800b0b 100%);
+}
+/* line 79, ../scss/modules/_main-menu.scss */
+nav a::before {
+  content: '';
+  height: 0;
+  line-height: 0;
+  width: 0;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  border-color: transparent transparent #ab0d0d #ab0d0d;
+  border-style: solid;
+  border-width: 14px 120px 6px 80px;
 }
 
 /* layout and transition style */

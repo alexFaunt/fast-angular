@@ -10,6 +10,17 @@
 }
 
 
+// Colors
+
+
+@mixin primary-gradient-to-dark {
+    background-color: $primary-color; // Old browsers
+    @include background-image(linear-gradient(top, $primary-color 0%,$primary-color 15%,$primary-color-darken 100%));
+}
+
+
+
+
 //	https://github.com/mastastealth/sass-flex-mixin
 //	======== Flexbox Mixins ==============
 //	------------------------

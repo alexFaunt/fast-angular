@@ -2,6 +2,7 @@
 
     /* Grey scale */
     $white: #fff;
+    $off-white: #ddd;
     $medium-grey: #444;
     $dark-grey: #222;
 
@@ -9,6 +10,14 @@
     $dark-blue: #1A477A;
     $medium-blue: #97C4F7;
     $light-blue: #D1D5E6;
+
+    $bright-red: #AB0D0D;
+    $bright-red-darken: #800B0B;
+
+
+    /* global colours */
+    $primary-color: $bright-red;
+    $primary-color-darken: $bright-red-darken;
 
 
 /***************** Layout ***************************/
@@ -44,13 +53,14 @@ $page-background-color: #333;
 
 /**************** Modules ***************************/
 
-	/* Main Menu */
-	$main-menu-transition-time: 0.5s;
-	$main-menu-width: 300px; // TODO - do dynamically? maybe
-    $main-menu-background-color: $dark-blue;
-
     /* Page Header */
     $page-header-height: $h1-font-size * $standard-line-height;
+
+	/* Main Menu */
+	$main-menu-transition-time: 0.5s;
+	$main-menu-width: 200px; // TODO - do dynamically? maybe
+    $main-menu-background-color: $dark-blue;
+    $main-menu-delay-time: 0.1s;
 
     /* Context Menu */
     $context-menu-transition-time: 0.5s;
@@ -68,10 +78,11 @@ $icon-standard-height: $icon-standard-width;
 /***************** Spacing *****************************/
 
 $standard-padding: 1em;
+$standard-spacing: 1em;
 
 
 /***************** Misc *****************************/
 
-
+$standard-box-shadow: 1px -4px 14px -6px #000;
 
 

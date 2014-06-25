@@ -4,3 +4,4 @@ node_modules
 .sass-cache
 TODO.txt
 design
+src/assets/css/*.css

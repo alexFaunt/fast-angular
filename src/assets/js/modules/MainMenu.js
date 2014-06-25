@@ -43,7 +43,7 @@
 	MainMenuModule.directive('mainMenu',
 		function() {
 
-			var MainMenuCtrl = function ($scope, MainMenuApi, MainMenuService, PageStateApi) {
+			var MainMenuCtrl = function ($scope, $location, MainMenuApi, MainMenuService, PageStateApi) {
 
 	        	$scope.menuItems = MainMenuService.query();
 
@@ -72,6 +72,12 @@
 	            $scope.closeMenu = function () {
 	            	MainMenuApi.close();
 	            };
+
+	            // This is kinda lame for angular, very long winded way of doing stuff + gets called like 8 times a second
+	            $scope.isSelected = function(item) {
+			        return item.path === '#' + $location.path();
+			    };
+
 		    };
 
 

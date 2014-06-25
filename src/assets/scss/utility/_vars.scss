@@ -58,9 +58,11 @@ $page-background-color: #333;
 
 	/* Main Menu */
 	$main-menu-transition-time: 0.5s;
-	$main-menu-width: 200px; // TODO - do dynamically? maybe
+	$main-menu-width: 160px; // TODO - do dynamically? maybe
     $main-menu-background-color: $dark-blue;
     $main-menu-delay-time: 0.1s;
+    $main-menu-underline-width: 45%;
+    $main-menu-underline-width-hover: 80%;
 
     /* Context Menu */
     $context-menu-transition-time: 0.5s;

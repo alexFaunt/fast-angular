@@ -9,7 +9,7 @@ nav {
 	z-index: 100;
 	height: 100%;
 	@include transition(all $main-menu-transition-time );
-	@include transform(translate3d(-100%, 0, 0));
+	@include transform(translate3d(-130%, 0, 0));
 	@include transform-origin(100%, 50%);
 	@include transform-style(preserve-3d);
 	@include backface-visibility(hidden);
@@ -49,46 +49,90 @@ nav {
 
 nav {
 	width: $main-menu-width;
-	text-align: center;
+	background: $primary-color;
+    box-shadow: 0px 0px 13px -2px #000;
+    text-transform: uppercase;
+    @include customFont();
+    font-size: 1.2em;
 
-	// white bg
+    // jagged point
 	&::before {
 		content: '';
 		position: absolute;
-		background: $off-white;
-		width: 80%;
+		top: -10%;
 		left: 0;
-		top: 0;
-		height: 100%;
-		z-index: -1;
-		@include box-shadow($standard-box-shadow);
+		right: -6%;
+		height: 75%;
+		@include transform(rotateZ(10deg));
+		background: $primary-color;
+		@include box-shadow(8px 0 12px -10px #000);
+	}
+
+	ul {
+		padding-right: 20%;
+		padding-left: $standard-spacing * 0.5;
+		margin-top: $standard-spacing;
 	}
 
 	li {
-		margin-top: $standard-spacing;
+		margin-top: $standard-spacing * 0.5;
 	}
 
 	a {
 		display: block;
 		position: relative;
-		padding: 1.2em 1em 1em;
+		padding: 0.4em $standard-spacing * 0.5 0.3em;
 		color: $white;
-		text-transform: uppercase;
-		@include primary-gradient-to-dark();
+		opacity: 0.8;
+		@include transition(all $link-hover-transition-time ease-in-out);
+
+		// white underline
+		&::before, &::after {
+			content: '';
+			position: absolute;
+			bottom: 0.1em;
+			@include transition(all $link-hover-transition-time ease-in-out);
+		}
 
 		&::before {
-			content: '';
-			height: 0;
-			line-height: 0;
-			width: 0;
-			position: absolute;
-			left: 0;
-			bottom: 100%;
-			border-color: transparent transparent $primary-color $primary-color;
-			border-style: solid;
-			border-width: 14px $main-menu-width*(3/5) 6px $main-menu-width*(2/5);
+			left: $standard-spacing * 0.5;
+			right: 100% - $main-menu-underline-width;
+			height: 2px;
+			background: $white;
+		}
 
+		&::after {
+			left: $main-menu-underline-width;
+			height: 0;
+			width: 0;
+			line-height: 0;
+			border-style: solid;
+			border-width: 0 5px 2px 0;
+			border-color: transparent transparent $white;
+		}
+
+		&.selected, &:hover {
+			@include transition(all $link-hover-transition-time ease-in-out $link-hover-delay-time);
+			opacity: 1;
+
+			&::before, &::after {
+				@include transition(all $link-hover-transition-time ease-in-out $link-hover-delay-time);
+			}
+
+			&::before {
+				right: 100% - $main-menu-underline-width-hover;
+			}
+
+			&::after {
+				left: $main-menu-underline-width-hover;
+			}
 		}
 	}
 }
 
+// hide if can't rotate
+.no-csstransforms3d {
+	nav::before {
+		display: none;
+	}
+}

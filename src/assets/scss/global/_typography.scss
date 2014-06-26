@@ -12,6 +12,11 @@ h1, h2, h3, h4, h5, h6, p, li {
   	color: $standard-text-color;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    @include customFont();
+    font-weight: normal;
+}
+
 h1 {
 	font-size: $h1-font-size;
 	text-align: center;

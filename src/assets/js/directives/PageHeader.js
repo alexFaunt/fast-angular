@@ -24,7 +24,7 @@
 
 	    return {
 	      	templateUrl: app.STATIC.MODULES_PATH + 'page-header.html',
-	      	repeat: true,
+	      	replace: true,
 	      	controller: PageHeaderCtrl
 	    };
 	});

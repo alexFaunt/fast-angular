@@ -1,65 +1,58 @@
 
+
 /* layout and transition style */
 
-.context-menu {
+aside {
 	position: absolute;
 	top: 0;
 	right: 0;
 	z-index: 100;
-	visibility: hidden;
-	width: $context-menu-width;
 	height: 100%;
-	@include transition(all $context-menu-transition-time);
-	@include transform(translate3d(100%, 0, 0) rotateY(79deg));
-	@include transform-origin(0, 50%); //eafefafeaf
+	@include transition(all $main-menu-transition-time);
+	@include transform(translate3d(130%, 0, 0));
+	@include transform-origin(100%, 50%);
 	@include transform-style(preserve-3d);
 	@include backface-visibility(hidden);
+}
 
-	&::after {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0,0,0,0.2);
-		content: '';
-		opacity: 1;
-		@include transition(opacity $context-menu-transition-time);
-	}
+.page-pusher {
+	@include transition(transform $main-menu-transition-time $main-menu-delay-time);
+}
+
+.content-overlay {
+	@include transition(opacity $main-menu-transition-time $main-menu-delay-time,
+		width 0s $main-menu-transition-time + $main-menu-delay-time,
+		height 0s $main-menu-transition-time + $main-menu-delay-time);
 }
 
 .context-menu-open {
-	.context-menu {
-		visibility: visible;
-		@include transition(transform $context-menu-transition-time);
-		@include transform(translate3d(100%, 0, 0) rotateY(0deg));
-
-		&::after {
-			width: 0;
-			height: 0;
-			opacity: 0;
-			@include transition(opacity $context-menu-transition-time, width 0.1s $context-menu-transition-time, height 0.1s $context-menu-transition-time);
-		}
+	aside {
+		@include transition(transform $main-menu-transition-time $main-menu-delay-time);
+		@include transform(translate3d(0, 0, 0));
 	}
 
 	.page-pusher {
-		@include transform(translate3d(-$context-menu-width, 0, 0));
+		@include transform(translate3d(-100px, 0, -600px) rotateY(20deg));
+		@include transition(transform $main-menu-transition-time);
 	}
 
 	.content-overlay {
 		width: 100%;
 		height: 100%;
 		opacity: 1;
-		@include transition(opacity $context-menu-transition-time);
+		@include transition(opacity $main-menu-transition-time);
 	}
 }
 
-// Styling
 
-.context-menu {
-	background-color: $context-menu-background-color;
+/* appearance style */
 
+aside {
+	width: $context-menu-width;
+	background-color: $white;
+    @include box-shadow(0px 0px 13px -2px #000); // TODO variable
+    text-transform: uppercase;
+    @include customFont();
+    font-size: 1.2em;
 }
-
-
 

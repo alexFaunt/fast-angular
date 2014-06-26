@@ -5,6 +5,15 @@
     top: 0;
     left: 0;
     width: 100%;
+    background-color: $white;
+    @include box-shadow(0px -9px 11px 5px #000); //TODO
+    z-index: 1; // TODO - sort index variables
+
+    h1 {
+        text-transform: uppercase;
+    }
+
+
 }
 
 .menu-button, .context-menu-button {
@@ -12,7 +21,7 @@
 	top: 0;
 	bottom: 0;
 	width: $page-header-height;
-	background: red;
+    background-color: $primary-color;
 }
 
 .menu-button {

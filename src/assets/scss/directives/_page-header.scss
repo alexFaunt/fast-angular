@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     background-color: $white;
-    @include box-shadow(0px -9px 11px 5px #000); //TODO
+    @include box-shadow(0px -9px 11px 5px $black); //TODO
     z-index: 1; // TODO - sort index variables
 
     h1 {
@@ -16,7 +16,8 @@
 
 }
 
-.menu-button, .context-menu-button {
+// TODO When buttons are sorted
+.menu-button {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -28,6 +29,7 @@
 	left: 0;
 }
 
-.context-menu-button {
+.context-menu-icon.menu-button {
+    left: auto;
 	right: 0;
 }

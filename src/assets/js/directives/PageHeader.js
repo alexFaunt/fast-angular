@@ -23,7 +23,7 @@
 	    };
 
 	    return {
-	      	templateUrl: app.STATIC.MODULES_PATH + 'page-header.html',
+	      	templateUrl: app.STATIC.DIRECTIVES_PATH + 'page-header.html',
 	      	replace: true,
 	      	controller: PageHeaderCtrl
 	    };

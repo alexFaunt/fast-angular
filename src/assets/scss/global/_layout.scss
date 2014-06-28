@@ -1,5 +1,11 @@
 /* Overall layout */
 
+*,
+*:after,
+*::before {
+	@include box-sizing(border-box);
+}
+
 html,
 body,
 .page-wrapper,
@@ -43,6 +49,7 @@ main {
 	height: 0;
 	background: rgba(0,0,0,0.2); // TODO variablize
 	opacity: 0;
+	z-index: 1;
 	@include transition(opacity $main-menu-transition-time, width 0.1s $main-menu-transition-time, height 0.1s $main-menu-transition-time);
 }
 
@@ -60,3 +67,78 @@ main {
 		@include flex-grow(1);
 	}
 }
+
+.label-row {
+	position: relative;
+
+	.static {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}
+
+.table-display {
+	display: table;
+
+	.row {
+		display: table-row;
+	}
+
+	.row > * {
+		display: table-cell;
+	}
+}
+
+
+/************************************************************************************
+  	Main section layouts
+************************************************************************************/
+
+main {
+	// always
+    overflow-y: auto;
+
+	// smaller than everything - no side padding, horizontal scroll if needed
+    overflow-x: auto;
+    padding: $standard-spacing 0;
+
+    // tiny, clamp at 300px, and allow side padding to grow to 1em
+	@media (min-width: $layout-tiny) {
+	    overflow-x: hidden;
+	}
+
+	// small, we now have enough space for min width column 300px + 1em of padding
+	@media (min-width: $layout-small) {
+	    padding: $standard-spacing;
+	    max-width: none;
+	    margin: 0;
+	}
+
+	// medium - two columns available
+	@media (min-width: $layout-medium) {
+	}
+
+	// large - three columns available
+	@media (min-width: $layout-large) {
+	}
+
+	// massive - four columns available
+	@media (min-width: $layout-massive) {
+	}
+
+	// super massive - four columns + context menu
+	@media (min-width: $layout-super-massive) {
+	}
+
+	// super massive black hole - four columns + both menus menu
+	@media (min-width: $layout-super-massive-black-hole) {
+	}
+
+}
+
+
+
+
+
+

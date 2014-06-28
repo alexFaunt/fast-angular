@@ -1,16 +1,24 @@
 /* Base style for site, elements and site wide styles */
 
-*,
-*:after,
-*::before {
-	@include box-sizing(border-box);
+/****************************************************
+    Page style
+****************************************************/
+.page-wrapper {
+    background: $page-background-color;
 }
 
-html,
-body {
-	height: 100%;
+.page-pusher {
+    background: $white;
 }
 
+.content-wrapper {
+    background: $light-off-white-bg;
+}
+
+
+/****************************************************
+   Elements
+****************************************************/
 ul {
 	padding: 0;
 	margin: 0;
@@ -22,16 +30,54 @@ a {
 }
 
 
-// page styles
+/****************************************************
+    Sections + articles default box
+****************************************************/
+section, article {
+    background-color: $white;
+    @include box-shadow(0 1px 4px rgba(0,0,0,0.2)); //TODO vars
+    @include border-radius($standard-border-radius);
+    margin-bottom: 1em;
+    min-width: 300px;
+    position: relative;
 
-.page-wrapper {
-    background: $page-background-color;
+    header, .content {
+        position: relative;
+    }
+
+    header {
+        border-bottom: 1px solid $off-white;
+    }
+
+    h2 {
+        padding: $section-h2-padding-vertical $section-h2-padding-horizontal;
+    }
+
+    h3 {
+        padding: $section-h3-padding-vertical $section-h3-padding-horizontal;
+    }
+
+    .content {
+         padding: $section-padding-top $section-padding-right $section-padding-bottom $section-padding-left;
+    }
 }
 
-.page-pusher {
-    background: $white;
+
+/****************************************************
+    Lists
+****************************************************/
+.definition-list {
+    .row > *{
+        padding-bottom: $definition-list-row-spacing;
+    }
+    .row:last-child > * {
+        padding-bottom: 0;
+    }
 }
 
-main {
-    background: $light-blue;
-}
+
+
+
+
+
+

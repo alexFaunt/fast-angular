@@ -1,6 +1,6 @@
 <nav>
     <ul>
-    	<li data-ng-repeat="item in menuItems">
+    	<li data-ng-repeat="item in menuItems | orderBy:'order'">
             <a data-ng-href="{{item.path}}" data-ng-click="closeMenu()" data-translate="{{item.value}}" data-ng-class="{selected:isSelected(item)}"></a>
     	</li>
     </ul>

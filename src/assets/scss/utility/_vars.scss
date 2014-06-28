@@ -5,6 +5,7 @@
     $off-white: #ddd;
     $medium-grey: #444;
     $dark-grey: #222;
+    $black: #000;
 
     /* Colours */
     $dark-blue: #1A477A;
@@ -17,37 +18,60 @@
     /* global colours */
     $primary-color: $bright-red;
     $primary-color-darken: $bright-red-darken;
-
+    $light-off-white-bg: $light-blue;
 
 /***************** Layout ***************************/
 
-$page-min-width: 240px;
-$page-max-width: 1000px;
+    $layout-tiny: 18.75em; // too small
+    $layout-small: 20.75em; // 1 column
+    $layout-medium: 40.5em; // 2 columns
+    $layout-large: 60.25em; // 3 columns
+    $layout-massive: 80em; // 4 columns
+    $layout-super-massive: 100.75em;
+    $layout-super-massive-black-hole: $layout-super-massive + 10em; // 10 em is the main-menu width
+    $standard-padding: 1em;
+    $standard-spacing: 1em;
 
 
 /***************** Typography ***********************/
 
-$standard-line-height: 1.2;
-$h1-font-size: 2em;
-$h2-font-size: 1.6em;
-$h3-font-size: 1.4em;
-$h4-font-size: 1.2em;
+    $standard-line-height: 1.2;
+    $h1-font-size: 2em;
+    $h2-font-size: 1.6em;
+    $h3-font-size: 1.4em;
+    $h4-font-size: 1.2em;
 
-$standard-text-color: $dark-grey;
-$inverted-text-color: $white;
+    $standard-text-color: $dark-grey;
+    $inverted-text-color: $white;
 
 
 /**************** Backgrounds ***************************/
 
-$background-medium-grey: $medium-grey;
-$page-background-color: #333;
+    $background-medium-grey: $medium-grey;
+    $page-background-color: #333;
 
 
 /**************** Global ****************************/
 
+    /* Section & article */
+    $section-padding-top: 0.65em;
+    $section-padding-left: 0.7em;
+    $section-padding-right: $section-padding-left;
+    $section-padding-bottom: 0.5em;
+    $section-h2-padding-vertical: 0.3em;
+    $section-h2-padding-horizontal: 0.7em;
+    $section-h3-padding-vertical: 0.3em;
+    $section-h3-padding-horizontal: 0.4375em;
+
     /* Buttons */
     $link-hover-transition-time: 0.3s;
     $link-hover-delay-time: 0.1s;
+
+    /* definition-list */
+    $definition-list-row-spacing: 0.2em;
+
+    /* forms */
+    $label-spacing: $section-padding-right;
 
 
 /**************** Modules ***************************/
@@ -57,34 +81,43 @@ $page-background-color: #333;
 
 	/* Main Menu */
 	$main-menu-transition-time: 0.5s;
-	$main-menu-width: 160px; // TODO - do dynamically? maybe
+	$main-menu-width: 10em; // TODO - do dynamically? maybe
     $main-menu-background-color: $dark-blue;
     $main-menu-delay-time: 0.1s;
     $main-menu-underline-width: 45%;
     $main-menu-underline-width-hover: 80%;
+    $main-menu-font-size: 1.2em;
 
     /* Context Menu */
     $context-menu-transition-time: 0.5s;
-    $context-menu-width: 300px;
+    $context-menu-width: 18em;
     $context-menu-background-color: $medium-blue;
+    $context-menu-font-size: 1.2em;
 
+
+/**************** Directives ***************************/
+
+    /* Team headline */
+    $team-headline-image-width: $h2-font-size + $section-h2-padding-vertical * 2 + $section-padding-top + $section-padding-bottom + ((1em + $definition-list-row-spacing) * 4); // 4 = number of rows in headline
+    $team-headline-image-height: $team-headline-image-width;
+    $team-headline-min-height: $team-headline-image-height + $section-padding-top * 2;
+
+    /* Loader */
+    $loader-width: 3em;
+    $loader-height: 3em;
+    $loader-inner-width: $loader-width / 10;
 
 
 /***************** Icons ****************************/
 
-$icon-standard-width: 32px;
-$icon-standard-height: $icon-standard-width;
-
-
-/***************** Spacing *****************************/
-
-$standard-padding: 1em;
-$standard-spacing: 1em;
+    $icon-standard-width: 32px;
+    $icon-standard-height: $icon-standard-width;
 
 
 /***************** Misc *****************************/
 
-$standard-box-shadow: 1px -4px 14px -6px #000; // TODO SORT THIS OUT.
+    $standard-box-shadow: 1px -4px 14px -6px $black; // TODO SORT THIS OUT.
+    $standard-border-radius: 4px;
 
 
 

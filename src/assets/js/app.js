@@ -24,6 +24,7 @@
     app.STATIC = {
         VIEWS_PATH: 'views/',
         MODULES_PATH: 'views/modules/',
+        DIRECTIVES_PATH: 'views/directives/',
         CONTROLLERS_PATH: 'controllers/'
     };
 

@@ -4,44 +4,30 @@
 .team-headline {
 
     .team-logo {
-        position: absolute;
-        height: $team-headline-min-height;
-        width: $team-headline-min-height;
-        top: 50%;
-        left: 50%;
-        margin-left: -0.5* $team-headline-min-height;
-        margin-top: -0.5* $team-headline-min-height;
-        opacity: 0.2;
-        @include filter(blur(3px));
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        z-index: 0;
-    }
-
-    header, .content {
-        z-index: 1;
+        display: none;
     }
 
     @media (min-width: $layout-medium) {
         min-height: $team-headline-min-height;
 
         .team-logo {
+            display: block;
+            position: absolute;
             @include filter(none);
             opacity: 1;
-            left: auto;
-            bottom: auto;
             width: $team-headline-image-width;
             height: $team-headline-image-height;
             top: $section-padding-top;
             right: $section-padding-right;
-            margin-top: 0;
-            margin-left: 0;
             border: 1px solid $off-white;
             @include border-radius($standard-border-radius);
             background-color: $white;
             background-size: 100%;
             z-index: 2;
+        }
+
+        .background-image {
+            display: none;
         }
 
         header {

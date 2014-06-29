@@ -43,6 +43,7 @@ section, article {
 
     header, .content {
         position: relative;
+        z-index: 1;
     }
 
     header {
@@ -59,6 +60,20 @@ section, article {
 
     .content {
          padding: $section-padding-top $section-padding-right $section-padding-bottom $section-padding-left;
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.2;
+        @include filter(blur(3px));
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        z-index: 0;
     }
 }
 

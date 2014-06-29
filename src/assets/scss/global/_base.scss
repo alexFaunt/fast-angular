@@ -33,12 +33,12 @@ a {
 /****************************************************
     Sections + articles default box
 ****************************************************/
-section, article {
+section, .section {
     background-color: $white;
     @include box-shadow(0 1px 4px rgba(0,0,0,0.2)); //TODO vars
     @include border-radius($standard-border-radius);
     margin-bottom: 1em;
-    min-width: 300px;
+    min-width: $column-width;
     position: relative;
 
     header, .content {
@@ -60,6 +60,14 @@ section, article {
 
     .content {
          padding: $section-padding-top $section-padding-right $section-padding-bottom $section-padding-left;
+    }
+
+    .date {
+        position: absolute;
+        top: $section-padding-top;
+        right: $section-padding-right;
+        color: $light-grey;
+        text-transform: lowercase;
     }
 
     .background-image {

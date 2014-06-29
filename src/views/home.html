@@ -1,7 +1,19 @@
 
-<section>
-    <header><h3>Header text</h3></header>
+<article class="section">
+    <header><h3>{{blog.title}}</h3></header>
+    <span class="date">{{blog.date}}</span>
     <div class="content">
-        <p>Body content of lots of content and exciting stuff that can go in here. I'm much excitedo aboot the stats n that</p>
+        <p>{{blog.body}}</p>
+    </div>
+</article>
+
+<section class="twitter-feed">
+    <header><h3 data-translate="TITLE_TWITTER_FEED"></h3></header>
+    <div class="content">
+        <article data-ng-repeat="tweet in tweets">
+            <span>{{tweet.user}}</span>
+            <span class="date">{{tweet.date}}</span>
+            <p>{{tweet.body}}</p>
+        </article>
     </div>
 </section>

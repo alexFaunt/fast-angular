@@ -18,6 +18,12 @@
                 controller: 'LeaguesCtrl'
             })
 
+            // fixtures
+            .when('/fixtures', {
+                templateUrl: app.STATIC.VIEWS_PATH + 'fixtures.html',
+                controller: 'FixturesCtrl'
+            })
+
             // Teams
             .when('/teams', {
                 templateUrl: app.STATIC.VIEWS_PATH + 'teams.html',
@@ -29,8 +35,11 @@
             })
 
             // 404 style page
+            .when('/error', {
+                templateUrl: app.STATIC.VIEWS_PATH + 'error.html'
+            })
 			.otherwise({
-			     redirectTo: app.STATIC.VIEWS_PATH + 'error.html'
+			     redirectTo: 'error'
 			});
 		}
 	]);

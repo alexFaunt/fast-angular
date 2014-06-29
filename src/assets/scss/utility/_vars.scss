@@ -22,15 +22,19 @@
 
 /***************** Layout ***************************/
 
-    $layout-tiny: 18.75em; // too small
-    $layout-small: 20.75em; // 1 column
-    $layout-medium: 40.5em; // 2 columns
-    $layout-large: 60.25em; // 3 columns
-    $layout-massive: 80em; // 4 columns
-    $layout-super-massive: 100.75em;
-    $layout-super-massive-black-hole: $layout-super-massive + 10em; // 10 em is the main-menu width
+    $column-width: 16em; // 18.75em = 300px;
     $standard-padding: 1em;
     $standard-spacing: 1em;
+    $main-menu-width: 10em; // TODO - do dynamically? maybe
+    $context-menu-width: $main-menu-width + 2 * $standard-spacing;
+
+    $layout-tiny: $column-width; // too small
+    $layout-small: $column-width + 2 * $standard-spacing; // 1 column
+    $layout-medium: 2 * $column-width + 3 * $standard-spacing; // 2 columns
+    $layout-large: 3 * $column-width + 4 * $standard-spacing; // 3 columns
+    $layout-massive: 4 * $column-width + 5 * $standard-spacing; // 4 columns
+    $layout-super-massive: $layout-massive + $context-menu-width;
+    $layout-super-massive-black-hole: $layout-super-massive + $main-menu-width;
 
 
 /***************** Typography ***********************/
@@ -81,7 +85,6 @@
 
 	/* Main Menu */
 	$main-menu-transition-time: 0.5s;
-	$main-menu-width: 10em; // TODO - do dynamically? maybe
     $main-menu-background-color: $dark-blue;
     $main-menu-delay-time: 0.1s;
     $main-menu-underline-width: 45%;
@@ -90,7 +93,6 @@
 
     /* Context Menu */
     $context-menu-transition-time: 0.5s;
-    $context-menu-width: 18em;
     $context-menu-background-color: $medium-blue;
     $context-menu-font-size: 1.2em;
 
@@ -110,7 +112,7 @@
 
 /***************** Icons ****************************/
 
-    $icon-standard-width: 32px;
+    $icon-standard-width: 2em;
     $icon-standard-height: $icon-standard-width;
 
 

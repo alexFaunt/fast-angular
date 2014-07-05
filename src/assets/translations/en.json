@@ -3,6 +3,10 @@
     "TITLE_LONG": "Football Analysis Statistics Tool",
 
     "TITLE_TWITTER_FEED": "Today on twitter",
+    "TITLE_GAMES": "Games",
+    "TITLE_FIXTURES": "Fixtures",
+    "TITLE_RESULTS": "Results",
+    "TITLE_LIVE": "Live",
 
 	"LINK_TEXT_MENU": "Open main menu",
 	"LINK_TEXT_FILTERS": "Open filters menu",

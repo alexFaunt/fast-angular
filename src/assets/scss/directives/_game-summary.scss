@@ -1,0 +1,79 @@
+
+.game-summary {
+    position: relative;
+    padding-left: $game-summary-info-width;
+    border-top: 1px solid $off-white;
+
+    &:first-child {
+        border: none;
+    }
+
+    .game-info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: $game-summary-info-width;
+        background: $off-white;
+        overflow: hidden;
+    }
+
+    .versus {
+        color: $primary-color;
+        position: absolute;
+        width: $game-team-score-size;
+        height: $game-team-score-size;
+        top: $game-team-score-size/2;
+        right: 0;
+        text-align: center;
+        line-height: $game-team-score-size;
+        font-size: $game-team-score-font-size-em;
+        overflow: hidden;
+        z-index: 2;
+
+        &.collapsed {
+            height: 1px;
+            background: $white;
+            top: 50%;
+        }
+    }
+
+
+    @media (min-width: $layout-medium) {
+        display: flex;
+
+        .game-team {
+            width: 50%;
+        }
+
+        .game-team ~ .game-team {
+
+            .game-headline {
+                padding-right: $game-team-headline-padding;
+                padding-left: (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding);
+            }
+
+            .score {
+                right: auto;
+                left: 0;
+            }
+        }
+
+        .versus {
+            right: auto;
+            left: 50%;
+            top: 0;
+            margin-left: -($game-team-score-size*$game-team-score-font-size)/2 + $game-summary-info-width/2;
+
+            &.collapsed {
+                margin: 0;
+                width: 1px;
+                height: auto;
+                position: static;
+                top: auto;
+                left: auto;
+            }
+        }
+    }
+
+}

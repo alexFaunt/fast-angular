@@ -34,9 +34,8 @@
             templateUrl: app.STATIC.DIRECTIVES_PATH + 'definition-list.html',
             controller: DefinitionListCtrl,
             scope: {
-                list: '=ngModel'
+                list: '=list'
             },
-            require: 'ngModel',
             replace: true
         };
     });

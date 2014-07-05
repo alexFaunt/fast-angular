@@ -110,11 +110,12 @@ h1 {
 
 /*
  * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ * EDITED - Do not want border
  */
-
-abbr[title] {
-    border-bottom: 1px dotted;
+abbr {
+    border-bottom: none;
 }
+
 
 /*
  * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.

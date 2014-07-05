@@ -1,0 +1,11 @@
+<div class="game-team">
+    <div class="game-headline">
+        <a data-ng-href="#/teams/{{team.id}}" class="team-name">{{team.name}}</a>
+        <span data-ng-if="game.state.showScore" class="score">{{team.goals.length}}</span>
+    </div>
+    <ul data-ng-if="team.goals.length" class="game-goals">
+        <li data-ng-repeat="goal in team.goals">
+            <a data-ng-href="#/players/{{goal.player.id}}">{{goal.player.name}}, {{goal.time}}</a>
+        </li>
+    </ul>
+</div>

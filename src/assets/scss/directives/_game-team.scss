@@ -1,0 +1,33 @@
+
+
+.game-team {
+
+    .game-headline {
+        position: relative;
+        padding: $game-team-headline-padding (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding) $game-team-headline-padding $game-team-headline-padding;
+        min-height: $game-team-score-size*$game-team-score-font-size;
+    }
+
+    .team-name {
+
+    }
+
+    .score {
+        background-color: $primary-color;
+        color: $white;
+        position: absolute;
+        width: $game-team-score-size;
+        height: $game-team-score-size;
+        top: 0;
+        right: 0;
+        text-align: center;
+        line-height: $game-team-score-size;
+        font-size: $game-team-score-font-size-em;
+    }
+
+    .game-goals {
+        display: none;
+    }
+
+
+}

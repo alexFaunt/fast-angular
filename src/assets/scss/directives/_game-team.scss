@@ -4,8 +4,12 @@
 
     .game-headline {
         position: relative;
-        padding: $game-team-headline-padding (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding) $game-team-headline-padding $game-team-headline-padding;
         min-height: $game-team-score-size*$game-team-score-font-size;
+        padding-right: (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding);
+        padding-left: $game-team-headline-padding;
+        padding-top: 0.7em;
+        padding-bottom: 0.3em;
+        text-align: center;
     }
 
     .team-name {
@@ -29,5 +33,10 @@
         display: none;
     }
 
-
+    ~ .game-team {
+        .game-headline {
+            padding-top: 0.41em;
+            padding-bottom: 0.61em;
+        }
+    }
 }

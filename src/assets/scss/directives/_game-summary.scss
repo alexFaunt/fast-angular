@@ -21,13 +21,13 @@
     .versus {
         color: $primary-color;
         position: absolute;
-        width: $game-team-score-size;
-        height: $game-team-score-size;
+        width: 1.85em; // eyeballed
+        height: 1.85em;
         top: $game-team-score-size/2;
         right: 0;
         text-align: center;
         line-height: $game-team-score-size;
-        font-size: $game-team-score-font-size-em;
+        font-size: $h4-font-size;
         overflow: hidden;
         z-index: 2;
 
@@ -35,9 +35,9 @@
             height: 1px;
             background: $white;
             top: 50%;
+            text-indent: -100px;
         }
     }
-
 
     @media (min-width: $layout-medium) {
         display: flex;
@@ -46,11 +46,19 @@
             width: 50%;
         }
 
+        .game-team .game-headline {
+            padding-top: 0.61em;
+            padding-bottom: 0.41em;
+        }
+
         .game-team ~ .game-team {
+            border-top: 0px none;
 
             .game-headline {
                 padding-right: $game-team-headline-padding;
                 padding-left: (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding);
+                padding-top: 0.61em;
+                padding-bottom: 0.41em;
             }
 
             .score {
@@ -63,7 +71,7 @@
             right: auto;
             left: 50%;
             top: 0;
-            margin-left: -($game-team-score-size*$game-team-score-font-size)/2 + $game-summary-info-width/2;
+            margin-left: 0.08em; // eyeballed.
 
             &.collapsed {
                 margin: 0;

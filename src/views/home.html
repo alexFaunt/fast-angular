@@ -1,7 +1,6 @@
-
 <article class="section">
     <header><h3>{{blog.title}}</h3></header>
-    <span class="date">{{blog.date}}</span>
+    <time class="date">{{blog.date}}</time>
     <div class="content">
         <p>{{blog.body}}</p>
     </div>
@@ -12,7 +11,7 @@
     <div class="content">
         <article data-ng-repeat="tweet in tweets">
             <span>{{tweet.user}}</span>
-            <span class="date">{{tweet.date}}</span>
+            <time class="date">{{tweet.date}}</time>
             <p>{{tweet.body}}</p>
         </article>
     </div>

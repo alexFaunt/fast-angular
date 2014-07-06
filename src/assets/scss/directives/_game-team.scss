@@ -35,8 +35,36 @@
 
     ~ .game-team {
         .game-headline {
-            padding-top: 0.41em;
-            padding-bottom: 0.61em;
+            padding-top: 0.45em;
+            padding-bottom: 0.55em;
+        }
+    }
+}
+
+@media (min-width: $layout-medium) {
+
+    .game-team {
+        width: 50%;
+    }
+
+    .game-team .game-headline {
+        padding-top: 0.55em;
+        padding-bottom: 0.45em;
+    }
+
+    .game-team ~ .game-team {
+        border-top: 0px none;
+
+        .game-headline {
+            padding-right: $game-team-headline-padding;
+            padding-left: (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding);
+            padding-top: 0.55em;
+            padding-bottom: 0.45em;
+        }
+
+        .score {
+            right: auto;
+            left: 0;
         }
     }
 }

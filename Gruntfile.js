@@ -55,6 +55,23 @@ module.exports = function(grunt) {
             }
         },
 
+        svgsprite: {
+            options: {
+                // dims: true
+            },
+            your_target: {
+                src: 'src/assets/img/icons',
+                dest: 'src/assets/img/sprites',
+
+                options: {
+                    sprite: 'icon-sprite',
+                    render: {
+                        css: false,
+                        scss: '../../scss/global/_icons'
+                    }
+                }
+            },
+        },
 
         // // karma automated testing
         // karma: {
@@ -90,6 +107,11 @@ module.exports = function(grunt) {
                 tasks: ['imagemin']
             },
 
+            sprites: {
+                files: ['src/assets/img/icons/*.svg'],
+                tasks: ['svgsprite']
+            },
+
             styles: {
                 files: ['src/assets/scss/*.scss','src/assets/scss/**/*.scss'],
                 tasks: ['compass:dev']
@@ -112,6 +134,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-svg-sprite');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     // grunt.loadNpmTasks('grunt-karma');
@@ -140,6 +163,10 @@ module.exports = function(grunt) {
 
     // test task
     // grunt.registerTask('test', ['karma:unit:run']);
+
+
+    // test task
+    grunt.registerTask('sprites', ['svgsprite']);
 
 
     // build task

@@ -11,7 +11,6 @@
     angular.module(app.name + 'Controllers').controller('LeaguesCtrl',
         ['$scope',
         function ($scope) {
-
         }
     ]);
 

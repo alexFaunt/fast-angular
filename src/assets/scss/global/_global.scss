@@ -1,6 +1,9 @@
 @import "base";
 @import "typography";
 @import "layout";
+@import "icons";
+// overriding this because cba to work out how to sort the relative paths
+%svg {background-image: url(../img/sprites/svg/icon-sprite.svg);}
 @import "form";
 @import "buttons";
 @import "loader";

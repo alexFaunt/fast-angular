@@ -11,6 +11,7 @@
     angular.module(app.name + 'Controllers').controller('FixturesCtrl',
         ['$scope',
         function ($scope) {
+            $scope.refreshiScroll();
 
         }
     ]);

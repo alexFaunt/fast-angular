@@ -96,17 +96,10 @@ main {
 ************************************************************************************/
 
 main {
-	// always
-    overflow-y: auto;
-
-	// smaller than everything - no side padding, horizontal scroll if needed
-    overflow-x: auto;
+	// // smaller than everything - no side padding, horizontal scroll if needed
     padding: $standard-spacing 0;
 
     // tiny, clamp at 300px, and allow side padding to grow to 1em
-	@media (min-width: $layout-tiny) {
-	    overflow-x: hidden;
-	}
 
 	// small, we now have enough space for min width column 300px + 1em of padding
 	@media (min-width: $layout-small) {
@@ -134,11 +127,59 @@ main {
 	// super massive black hole - four columns + both menus menu
 	@media (min-width: $layout-super-massive-black-hole) {
 	}
-
 }
 
 
+body {
+	overflow: hidden;
+}
 
+#wrapper {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	/* Prevent native touch events on Windows */
+	-ms-touch-action: none;
+
+	/* Prevent the callout on tap-hold and text selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+	padding: 0;
+
+	.no-touch & {
+		overflow: auto;
+	}
+
+
+
+}
+
+#scroller {
+	/* Prevent elements to be highlighted on tap */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	/* Put the scroller into the HW Compositing layer right from the start */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+
+		overflow-x: auto;
+	@media (min-width: $layout-tiny) {
+		overflow-x: hidden;
+	}
+}
 
 
 

@@ -33,7 +33,7 @@
 
         &.collapsed {
             height: 1px;
-            background: $white;
+            background: $off-white;
             top: 50%;
             text-indent: -100px;
         }
@@ -42,36 +42,11 @@
     @media (min-width: $layout-medium) {
         display: flex;
 
-        .game-team {
-            width: 50%;
-        }
-
-        .game-team .game-headline {
-            padding-top: 0.61em;
-            padding-bottom: 0.41em;
-        }
-
-        .game-team ~ .game-team {
-            border-top: 0px none;
-
-            .game-headline {
-                padding-right: $game-team-headline-padding;
-                padding-left: (($game-team-score-size*$game-team-score-font-size) + $game-team-headline-padding);
-                padding-top: 0.61em;
-                padding-bottom: 0.41em;
-            }
-
-            .score {
-                right: auto;
-                left: 0;
-            }
-        }
-
         .versus {
             right: auto;
             left: 50%;
             top: 0;
-            margin-left: 0.08em; // eyeballed.
+            margin-left: -0.1em; // eyeballed.
 
             &.collapsed {
                 margin: 0;

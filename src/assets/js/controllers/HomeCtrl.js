@@ -11,7 +11,8 @@
 	angular.module(app.name + 'Controllers').controller('HomeCtrl',
 		['$scope', '$http',
 		function ($scope, $http) {
-			$http.get('data/blog.json').success(function(data) {
+
+            $http.get('data/blog.json').success(function(data) {
                 $scope.blog = data;
             });
 

@@ -58,7 +58,7 @@
 	PageStateModule.directive('pageState',
 		function() {
 
-			var PageStateCtrl = function ($scope, PageStateApi) {
+			var PageStateCtrl = function ($scope, $timeout, PageStateApi) {
 
 				var baseClass = 'page-wrapper';
 

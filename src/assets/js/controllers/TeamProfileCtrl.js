@@ -20,6 +20,7 @@
             $scope.team = TeamProfileService.get({
                 teamId: $routeParams.teamId
             },
+
             // callback - not sure why the scope doesnt just apply, or why i cant do this in directive
             function () {
                 var i, len = headlineListKeys.length;

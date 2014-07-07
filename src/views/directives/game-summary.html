@@ -1,0 +1,11 @@
+
+<div class="game-summary">
+    <div class="game-info">
+        <time>{{game.date}} {{game.time}}</time>
+        <!-- {{game.location}}
+        {{game.competition}}-->
+    </div>
+    <div data-game-team data-game="game" data-team="game.teams.home"></div>
+    <abbr class="versus" data-ng-class="{collapsed: !game.state.showVersus}" title="versus">vs</abbr>
+    <div data-game-team data-game="game" data-team="game.teams.away"></div>
+</div>

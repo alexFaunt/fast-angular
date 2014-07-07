@@ -1,1 +1,8 @@
-<div data-games-list></div>
+<section>
+    <header>
+        <h2 data-translate="{{LIST_STATE.title}}"></h2>
+    </header>
+    <div class="game-list">
+        <div data-ng-repeat="game in games" data-game-summary data-game="game"></div>
+    </div>
+</section>

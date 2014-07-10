@@ -12,7 +12,7 @@
     angular.module(window.appName).config(function ($translateProvider) {
         $translateProvider
             .useStaticFilesLoader({
-                prefix: 'assets/translations/',
+                prefix: 'translations/',
                 suffix: '.json'
             })
             .preferredLanguage('en')

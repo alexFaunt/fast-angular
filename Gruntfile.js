@@ -8,10 +8,10 @@ module.exports = function(grunt) {
         // minify javascript
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                // banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'src/assets/js/main.js',
+                src: 'temp/main.js',
                 dest: 'build/assets/js/main.min.js'
             }
         },
@@ -39,6 +39,11 @@ module.exports = function(grunt) {
             dev: {                          // Another target
                 options: {
                     config: 'config/compass-dev.rb'
+                }
+            },
+            build: {                          // Another target
+                options: {
+                    config: 'config/compass-build.rb'
                 }
             }
         },
@@ -126,6 +131,90 @@ module.exports = function(grunt) {
                     base: 'src'
                 }
             }
+        },
+
+        concat: {
+            options: {
+                separator: ';',
+            },
+            dist: {
+                src: [
+                    'src/assets/js/lib/angular/angular.min.js',
+                    'src/assets/js/lib/angular/*.js',
+                    'src/assets/js/lib/!(modernizr).js',
+                    'src/assets/js/*.js',
+                    'src/assets/js/modules/*.js',
+                    'src/assets/js/services/*.js',
+                    'src/assets/js/directives/*.js',
+                    'src/assets/js/controllers/*.js',
+                    'temp/templates.js'
+                ],
+                dest: 'temp/main.js',
+            },
+        },
+
+        clean: {
+            build: ["build/*", "build/**/*", "temp/*", "temp/**/*"],
+            cleanup: ["temp/*", "temp/**/*"]
+        },
+
+        copy: {
+            main: {
+                files: [
+                    {
+                        src: ['src/assets/js/lib/modernizr.js'],
+                        dest: 'build/assets/js/modernizr.js'
+                    },
+                    {
+                        src: ['src/index-build.html'],
+                        dest: 'build/index.html'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/data',
+                        src: ['**'],
+                        dest: 'build/data/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/translations/',
+                        src: ['**'],
+                        dest: 'build/translations/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/assets/img/sprites/',
+                        src: ['**'],
+                        dest: 'build/assets/img/sprites/'
+                    }
+               ]
+            },
+            debug: {
+                files: [
+                    {
+                        src: ['src/assets/css/main.css'],
+                        dest: 'build/assets/css/main.css'
+                    },
+                    {
+                        src: ['temp/main.js'],
+                        dest: 'build/assets/js/main.min.js'
+                    }
+                ]
+            }
+        },
+
+        ngtemplates: {
+            fast: {
+                cwd: 'src/',
+                src: ['views/**.html', 'views/**/*.html'],
+                dest: 'temp/templates.js',
+                options: {
+                    htmlmin: {
+                        collapseWhitespace: true,
+                        collapseBooleanAttributes: true
+                    }
+                }
+            }
         }
 
     });
@@ -137,7 +226,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-svg-sprite');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    // grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-angular-templates');
+    grunt.loadNpmTasks('grunt-karma');
 
 
     // watch task
@@ -169,8 +262,10 @@ module.exports = function(grunt) {
     grunt.registerTask('sprites', ['svgsprite']);
 
 
-    // build task
-    grunt.registerTask('build', ['uglify', 'compass']);
+    // build tasks
+    grunt.registerTask('build', ['clean:cleanup', 'clean:build', 'ngtemplates', 'concat', 'uglify', 'compass:build', 'copy:main', 'clean:cleanup']);
+
+    grunt.registerTask('debugbuild', ['clean:cleanup', 'clean:build', 'ngtemplates', 'concat', 'compass:dev', 'copy:main', 'copy:debug']);
 
 
     // Default task.

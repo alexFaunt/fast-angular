@@ -10,7 +10,7 @@
 
     app.directive('gameSummary', function() {
 
-        var GameSummaryCtrl = function ($scope) {
+        var GameSummaryCtrl = function () {
 
 
 

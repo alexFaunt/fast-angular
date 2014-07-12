@@ -11,7 +11,7 @@
 	var PageStateModule = angular.module('PageStateModule', ['MainMenuModule']);
 
 	/* Api for interaction with other components of app */
-	PageStateModule.factory('PageStateApi', function(MainMenuApi) {
+	PageStateModule.factory('PageStateApi', function () {
 	    return {
 	    	STATES: {},
 	        stateList: [],
@@ -23,6 +23,7 @@
 	        	}
 	        	else {
 	        		// TODO - logger erro
+	        		console.log('error');
 	        	}
 	        },
 	        addState: function (state) {
@@ -56,9 +57,10 @@
 
 	/* definition and control */
 	PageStateModule.directive('pageState',
-		function() {
+		['$timeout', 'PageStateApi',
+		function($timeout, PageStateApi) {
 
-			var PageStateCtrl = function ($scope, $timeout, PageStateApi) {
+			var PageStateCtrl = function ($scope) {
 
 				var baseClass = 'page-wrapper';
 
@@ -87,9 +89,9 @@
 		    return {
 		      	templateUrl: app.STATIC.VIEWS_PATH + 'main.html',
 		      	replace: true,
-		      	controller: PageStateCtrl
+		      	controller: ['$scope', PageStateCtrl]
 		    };
 		}
-	);
+	]);
 
 })(window, angular);

@@ -10,8 +10,7 @@
 
     app.directive('gameTeam', function() {
 
-        var gameTeamCtrl = function ($scope) {
-            $scope.poo = 'poo';
+        var gameTeamCtrl = function () {
         };
 
         return {

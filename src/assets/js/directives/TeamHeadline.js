@@ -10,7 +10,7 @@
 
     app.directive('teamHeadline', function() {
 
-        var TeamHeadlineCtrl = function ($scope) {
+        var TeamHeadlineCtrl = function () {
 
         };
 

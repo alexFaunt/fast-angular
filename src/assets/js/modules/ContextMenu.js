@@ -27,10 +27,11 @@
     });
 
     /* definition and control */
-    ContextMenuModule.directive('contextMenu',
-        function() {
+    ContextMenuModule.directive('contextMenu', [
+        'ContextMenuApi', 'PageStateApi',
+        function (ContextMenuApi, PageStateApi) {
 
-            var ContextMenuCtrl = function ($scope, ContextMenuApi, PageStateApi) {
+            var ContextMenuCtrl = function ($scope) {
 
                 $scope.ContextMenuApi = ContextMenuApi;
 
@@ -59,9 +60,9 @@
             return {
                 templateUrl: app.STATIC.MODULES_PATH + 'context-menu.html',
                 replace: true,
-                controller: ContextMenuCtrl
+                controller: ['$scope', ContextMenuCtrl]
             };
         }
-    );
+    ]);
 
 })(window, angular);

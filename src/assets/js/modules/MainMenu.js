@@ -40,10 +40,11 @@
 	]);
 
 	/* definition and control */
-	MainMenuModule.directive('mainMenu',
-		function() {
+	MainMenuModule.directive('mainMenu', [
+		'MainMenuApi', 'MainMenuService', 'PageStateApi',
+		function(MainMenuApi, MainMenuService, PageStateApi) {
 
-			var MainMenuCtrl = function ($scope, $location, MainMenuApi, MainMenuService, PageStateApi) {
+			var MainMenuCtrl = function ($scope, $location) {
 
 	        	$scope.menuItems = MainMenuService.query();
 
@@ -84,9 +85,9 @@
 		    return {
 		      	templateUrl: app.STATIC.MODULES_PATH + 'main-menu.html',
 		      	replace: true,
-		      	controller: MainMenuCtrl
+		      	controller: ['$scope', '$location', MainMenuCtrl]
 		    };
 		}
-	);
+	]);
 
 })(window, angular);

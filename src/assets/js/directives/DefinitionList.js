@@ -12,7 +12,7 @@
 
         // I HAVE NO IDEA HOW LIST GETS SET BUT IT WORKS... TODO ... WHAT THE FK.
 
-        var DefinitionListCtrl = function ($scope, $element) {
+        var DefinitionListCtrl = function () {
             // // measure widths of labels + set width;
 
             // SRAPED THIS IDEA AND THAT OF THE ACTUAL DEFINTION LIST... ERRR LOL. MIGHT NEED TO REFACTOR TO BE DISPLAY TABLE

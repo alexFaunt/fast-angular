@@ -8,11 +8,22 @@ module.exports = function(grunt) {
         // minify javascript
         uglify: {
             options: {
-                // banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            build: {
-                src: 'temp/main.js',
+            main: {
+                src: [
+                    'temp/js/angular/*.js',
+                    'temp/js/angular/modules/*.js',
+                    'temp/js/angular/services/*.js',
+                    'temp/js/angular/directives/*.js',
+                    'temp/js/angular/controllers/*.js'
+                ],
                 dest: 'build/assets/js/main.min.js'
+            },
+            lib: {
+                src: [
+                    'temp/js/lib.js'
+                ],
+                dest: 'build/assets/js/lib.min.js'
             }
         },
 
@@ -30,12 +41,7 @@ module.exports = function(grunt) {
         },
 
         // compile sass
-        compass: {                          // Task
-            dist: {                         // Target
-                options: {                  // Target options
-                    config: 'config/compass-build.rb'
-                }
-            },
+        compass: {
             dev: {                          // Another target
                 options: {
                     config: 'config/compass-dev.rb'
@@ -137,20 +143,25 @@ module.exports = function(grunt) {
             options: {
                 separator: ';',
             },
-            dist: {
+            lib: {
                 src: [
                     'src/assets/js/lib/angular/angular.min.js',
                     'src/assets/js/lib/angular/*.js',
-                    'src/assets/js/lib/!(modernizr).js',
+                    'src/assets/js/lib/!(modernizr).js'
+                ],
+                dest: 'temp/js/lib.js'
+            },
+            debug: {
+                src: [
                     'src/assets/js/*.js',
                     'src/assets/js/modules/*.js',
                     'src/assets/js/services/*.js',
                     'src/assets/js/directives/*.js',
                     'src/assets/js/controllers/*.js',
-                    'temp/templates.js'
+                    'temp/js/angular/templates.js'
                 ],
-                dest: 'temp/main.js',
-            },
+                dest: 'build/assets/js/main.min.js'
+            }
         },
 
         clean: {
@@ -162,8 +173,8 @@ module.exports = function(grunt) {
             main: {
                 files: [
                     {
-                        src: ['src/assets/js/lib/modernizr.js'],
-                        dest: 'build/assets/js/modernizr.js'
+                        src: ['src/assets/js/lib/modernizr.min.js'],
+                        dest: 'build/assets/js/modernizr.min.js'
                     },
                     {
                         src: ['src/index-build.html'],
@@ -196,8 +207,8 @@ module.exports = function(grunt) {
                         dest: 'build/assets/css/main.css'
                     },
                     {
-                        src: ['temp/main.js'],
-                        dest: 'build/assets/js/main.min.js'
+                        src: ['temp/js/lib.js'],
+                        dest: 'build/assets/js/lib.min.js'
                     }
                 ]
             }
@@ -207,7 +218,7 @@ module.exports = function(grunt) {
             fast: {
                 cwd: 'src/',
                 src: ['views/**.html', 'views/**/*.html'],
-                dest: 'temp/templates.js',
+                dest: 'temp/js/angular/templates.js',
                 options: {
                     htmlmin: {
                         collapseWhitespace: true,
@@ -215,7 +226,22 @@ module.exports = function(grunt) {
                     }
                 }
             }
-        }
+        },
+
+        ngmin: {
+            all: {
+                expand: true,
+                cwd: 'src/assets/js',
+                src: [
+                    '*.js',
+                    'modules/*.js',
+                    'directives/*.js',
+                    'services/*.js',
+                    'controllers/*.js'
+                ],
+                dest: 'temp/js/angular'
+            }
+        },
 
     });
 
@@ -231,7 +257,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-karma');
-
+    grunt.loadNpmTasks('grunt-ngmin');
 
     // watch task
     var watchScripts = Object.create(null);
@@ -263,12 +289,24 @@ module.exports = function(grunt) {
 
 
     // build tasks
-    grunt.registerTask('build', ['clean:cleanup', 'clean:build', 'ngtemplates', 'concat', 'uglify', 'compass:build', 'copy:main', 'clean:cleanup']);
+    grunt.registerTask('build', ['clean:cleanup', 'clean:build', 'jshint', 'svgsprite', 'ngmin', 'ngtemplates', 'concat:lib', 'uglify:lib', 'uglify:main', 'compass:build', 'copy:main', 'clean:cleanup']);
 
-    grunt.registerTask('debugbuild', ['clean:cleanup', 'clean:build', 'ngtemplates', 'concat', 'compass:dev', 'copy:main', 'copy:debug']);
+    grunt.registerTask('debugbuild', ['clean:cleanup', 'clean:build', 'ngtemplates', 'concat:lib', 'concat:debug', 'compass:dev', 'copy:main', 'copy:debug']);
 
 
     // Default task.
     // grunt.registerTask('default', ['karma:continuous', 'watch']);
     grunt.registerTask('default', ['connect', 'watch']);
+
+
+
+
+
+
+
+
+
+
+
+
 };

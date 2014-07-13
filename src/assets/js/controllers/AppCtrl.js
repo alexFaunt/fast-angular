@@ -11,22 +11,28 @@
     angular.module(app.name + 'Controllers').controller('AppCtrl',
         ['$scope', '$timeout',
         function ($scope, $timeout) {
-            $scope.$parent.myScrollOptions = {
-                snap: false
-            };
 
-            $scope.refreshiScroll = function (toTop) {
-                $timeout(function () {
-                    if (toTop) {
-                        $scope.$parent.myScroll.wrapper.scrollTo(0, 0);
-                    }
-                    $scope.$parent.myScroll.wrapper.refresh();
-                }, app.STATIC.MENU_TRANSITION_TIME);
-            };
+            if ($scope.$parent.myScroll !== undefined) {
+                $scope.$parent.myScrollOptions = {
+                    snap: false
+                };
 
-            $scope.$on('$routeChangeSuccess', function () {
-                $scope.refreshiScroll(true);
-            });
+                $scope.refreshiScroll = function (toTop) {
+                    $timeout(function () {
+                        if (toTop) {
+                            $scope.$parent.myScroll.wrapper.scrollTo(0, 0);
+                        }
+                        $scope.$parent.myScroll.wrapper.refresh();
+                    }, app.STATIC.MENU_TRANSITION_TIME);
+                };
+
+                $scope.$on('$routeChangeSuccess', function () {
+                    $scope.refreshiScroll(true);
+                });
+            }
+            else {
+                $scope.refreshiScroll = function () {};
+            }
         }
     ]);
 

@@ -13,7 +13,6 @@
     	window.appName + 'Services',
     	window.appName + 'Controllers',
 
-        'ng-iscroll',
         'pascalprecht.translate',
 
         'PageStateModule',

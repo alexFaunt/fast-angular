@@ -11,7 +11,7 @@ body,
 .page-wrapper,
 .page-pusher,
 .content-wrapper,
-main {
+.scroll-wrapper {
 	height: 100%;
 }
 
@@ -23,7 +23,7 @@ main {
 .page-wrapper,
 .page-pusher,
 .content-wrapper,
-main {
+.scroll-wrapper {
 	position: relative;
 }
 
@@ -134,10 +134,10 @@ body {
 	overflow: hidden;
 }
 
-#wrapper {
+.scroll-wrapper {
 	position: relative;
 	height: 100%;
-	overflow: hidden;
+
 	/* Prevent native touch events on Windows */
 	-ms-touch-action: none;
 
@@ -149,28 +149,18 @@ body {
 	text-size-adjust: none;
 	padding: 0;
 
-	.no-touch & {
-		overflow: auto;
-	}
-
-
-
-}
-
-#scroller {
-	/* Prevent elements to be highlighted on tap */
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-
-	/* Put the scroller into the HW Compositing layer right from the start */
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	-o-transform: translateZ(0);
-	transform: translateZ(0);
-
+	overflow-y: auto;
 	overflow-x: auto;
 
-	height: 100%;
+	@media (min-width: $layout-small) {
+		overflow-x: hidden;
+	}
+}
+
+main {
+	// transform into it's own layer so it scrolls nicely
+	@include transform(translateX(0));
+	@include backface-visibility(hidden);
 }
 
 

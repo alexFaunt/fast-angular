@@ -1,0 +1,62 @@
+$team-selector-carousel-anim-time: 0.4s;
+
+.team-selector-carousel {
+    width: 100%;
+
+    // &::before, &::after {
+    //     content: '';
+    //     top: 0;
+    //     height: 100%;
+    //     width: 8%;
+
+    // }
+    // &::before {
+    //     left: 0;
+    //     @include background-image(linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
+    // }
+    // &::after {
+    //     right: 0;
+    //     @include background-image(linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
+    // }
+
+    .slide {
+        width: 100%;
+        left: 0;
+        padding: $standard-padding 10%;
+        @include backface-visibility(hidden);
+        position: absolute;
+        top: 0;
+        @include transform(translate3d(-100%, 0, 0));
+        @include transition(all $team-selector-carousel-anim-time ease-out);
+    }
+
+    .slide:first-child + .slide + .slide { // 3rd slide - without nth child (not that thats important)
+        @include transform(translate3d(0%, 0, 0));
+
+        .image {
+
+        }
+
+
+        ~ .slide {
+            @include transform(translate3d(100%, 0, 0));
+
+            .image {
+            }
+        }
+    }
+
+    .image {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        @include border-radius(50%);
+        @include transition(all $team-selector-carousel-anim-time);
+
+        &::before {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
+}

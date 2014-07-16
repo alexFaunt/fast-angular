@@ -147,6 +147,7 @@ body {
 	-ms-text-size-adjust: none;
 	-o-text-size-adjust: none;
 	text-size-adjust: none;
+
 	padding: 0;
 
 	overflow-y: auto;
@@ -161,6 +162,7 @@ main {
 	// transform into it's own layer so it scrolls nicely
 	@include transform(translateX(0));
 	@include backface-visibility(hidden);
+	min-height: 100%;
 }
 
 

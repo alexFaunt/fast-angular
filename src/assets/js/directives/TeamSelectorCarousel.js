@@ -4,6 +4,15 @@
  */
 
  // HOLY SHIT THIS NEEDS REWRITING
+ // Tidy up
+ // make directive
+ // use the trigger events
+ // expose getters and setters with/without animation
+ // sort out edge cases - if you lob it at one end, needs to smash into the end, not gracefully go there
+ // snap to list items
+ // Check the recursion shit - probs not good.
+ // calculate max from elements
+
 
 ;(function (window, angular) {
     'use strict';
@@ -24,8 +33,48 @@
             var pressed = false;
 
             var max = -800;
+            var item = 200;
             var newOffset;
             var time = 100;
+
+            var scrollingListIndex = 0;
+            var originalClick;
+
+
+            // Need to make this a global things
+            var xform = 'transform';
+            ['webkit', 'Moz', 'O', 'ms'].every(function (prefix) {
+                var e = prefix + 'Transform';
+                if (typeof document.body.style[e] !== 'undefined') {
+                    xform = e;
+                    return false;
+                }
+                return true;
+            });
+
+
+            // RECURSIVE FUNCITON SEEMS DODGE - WORK OUT HOW TO DO THIS PROPER LIEK
+            var clicked = function (target) {
+                if (target.dataset.href) {
+                    window.location.href = window.location.href + '/' + target.dataset.href;
+                }
+                else if (target === carouselWrapper) {
+                    return
+                }
+                else {
+                    clicked(target.parentElement);
+                }
+            }
+
+            var updateScroll = function (offset) {
+                var math = -Math.floor(offset/item)
+                var newScrollingIndex = math > 0 ? math : 0;
+                if (newScrollingIndex !== scrollingListIndex) {
+                    changeIndex(newScrollingIndex);
+                }
+
+                carouselWrapper.style[xform] = 'translateY(' + offset + 'px)';
+            };
 
             var touchStart = function (e) {
                 pressed = true;
@@ -42,6 +91,7 @@
 
                 $element.bind('touchmove', touchMove);
                 $element.bind('touchend', touchEnd);
+                originalClick = Date.now();
             };
 
             var touchMove = function (e) {
@@ -53,7 +103,7 @@
                 newOffset = newOffset >= 0 ? newOffset/2 : newOffset;
                 newOffset = newOffset <= max ? (max + (newOffset-max)/2) : newOffset;
 
-                carouselWrapper.style.cssText = '-webkit-transform: translate3d(0, ' + newOffset + 'px, 0)';
+                updateScroll(newOffset);
             };
 
             var track = function () {
@@ -65,15 +115,29 @@
                 velocity = 0.8 * v + 0.2 * velocity;
             };
 
-            var touchEnd = function () {
+            var touchEnd = function (e) {
                 startingPosition = newOffset;
                 pressed = false;
+
+                $element.unbind('touchmove', touchMove);
+                $element.unbind('touchend', touchEnd);
+
 
                 clearInterval(ticker);
                 timestamp = Date.now();
 
+                if (delta === 0) {
+                    if ((timestamp - originalClick) < 170){
+                        clicked(e.target);
+                    }
+                    return;
+                }
+
                 amplitude = velocity * 0.8;
                 target = newOffset + amplitude;
+                target = Math.round(target/item) * item;
+                amplitude = target - newOffset;
+
 
                 if (target > 0) {
                     target = 0;
@@ -84,10 +148,9 @@
                     amplitude = max - newOffset;
                 }
 
-                autoScroll();
 
-                $element.unbind('touchmove', touchMove);
-                $element.unbind('touchend', touchEnd);
+
+                autoScroll();
             };
 
             var autoScroll = function () {
@@ -98,13 +161,19 @@
                 delta = -amplitude * Math.exp(-elapsed / 200);
                 // /console.log('amplitude',amplitude,'delta',delta,'target',target,'newOffset',newOffset,'autoscrolloffset', (target + delta));
                 if (delta > 1 || delta < -1) {
-                    carouselWrapper.style.cssText = '-webkit-transform: translate3d(0, ' + (target + delta) + 'px, 0)';
+                    updateScroll(target + delta);
+                    startingPosition = target + delta;
                     window.requestAnimationFrame(autoScroll);
                 }
                 else {
-                    carouselWrapper.style.cssText = '-webkit-transform: translate3d(0, ' + (target) + 'px, 0)';
+                    updateScroll(target);
+                    startingPosition = target;
                 }
-                startingPosition = target + delta;
+            };
+
+            var changeIndex = function (idx) {
+                scrollingListIndex = idx;
+                console.log('update ticker', idx);
             };
 
             $element[0].querySelector('.teams').addEventListener('touchstart', touchStart);
@@ -115,36 +184,44 @@
 
             $scope.teams = [
                 {
+                    id: 0,
                     image: 'http://placekitten.com/400/400',
-                    name: 'Slide One'
+                    name: 'Team One'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/500/500',
-                    name: 'Slide Two'
+                    name: 'Team Two'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/300/300',
-                    name: 'Slide Three'
+                    name: 'Team Three'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/450/450',
-                    name: 'Slide Four'
+                    name: 'Team Four'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/330/330',
-                    name: 'Slide Five'
+                    name: 'Team Five'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/300/300',
-                    name: 'Slide Three'
+                    name: 'Team Three'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/450/450',
-                    name: 'Slide Four'
+                    name: 'Team Four'
                 },
                 {
+                    id: 0,
                     image: 'http://placekitten.com/330/330',
-                    name: 'Slide Five'
+                    name: 'Team Five'
                 }
             ];
 
@@ -156,6 +233,8 @@
 
                 // $timeout(changeIndex, 1000);
             };
+
+
 
             // $timeout(changeIndex, 1000);
 

@@ -2,7 +2,7 @@
 <div class="team-selector-carousel flex-row">
     <div class="teams-container grow">
         <div class="teams">
-            <div class="team" data-ng-repeat="index in activeTeams">
+            <div class="team" data-ng-repeat="index in activeTeams" data-href="{{teams[index].id}}">
                 <div class="image" style="background-image:url('{{teams[index].image}}')"></div>
                 <span class="team-name">{{teams[index].name}}</span>
             </div>

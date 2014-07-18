@@ -1,62 +1,124 @@
 $team-selector-carousel-anim-time: 0.4s;
+$team-selector-height: 200px;
+$circle-size: 160px;
 
 .team-selector-carousel {
-    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: $team-selector-height;
+    min-width: $column-width;
 
-    // &::before, &::after {
-    //     content: '';
-    //     top: 0;
-    //     height: 100%;
-    //     width: 8%;
-
-    // }
-    // &::before {
-    //     left: 0;
-    //     @include background-image(linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
-    // }
-    // &::after {
-    //     right: 0;
-    //     @include background-image(linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
-    // }
-
-    .slide {
-        width: 100%;
-        left: 0;
-        padding: $standard-padding 10%;
-        @include backface-visibility(hidden);
-        position: absolute;
-        top: 0;
-        @include transform(translate3d(-100%, 0, 0));
-        @include transition(all $team-selector-carousel-anim-time ease-out);
+    .teams-container, .ticker {
+        height: 100%;
+        @include transform(translate3d(0, 0, 0));
     }
 
-    .slide:first-child + .slide + .slide { // 3rd slide - without nth child (not that thats important)
-        @include transform(translate3d(0%, 0, 0));
+    .teams {
+        @include transform(translate3d(0, 0, 0));
+    }
 
-        .image {
+    .team {
+        position: relative;
+        border: 1px solid #000;
+        text-align: center;
+        height: $team-selector-height;
+        padding: 1em;
+        padding-left: 20%;
+        overflow: hidden;
 
-        }
-
-
-        ~ .slide {
-            @include transform(translate3d(100%, 0, 0));
-
-            .image {
-            }
+        &::before {
+            content: '';
+            height: 100%;
+            display: inline-block;
+            margin-left: -0.25em;
+            vertical-align: middle;
         }
     }
 
     .image {
-        background-repeat: no-repeat;
-        background-position: center;
+        width: $circle-size;
+        left: 15%;
+        top: 50%;
+        position: absolute;
+        margin-top: -0.5 * $circle-size;
+        border-radius: 50%;
+        left: 5%;
+        background-image: url('http://3.bp.blogspot.com/-ZPZYb1wmnG8/UE1Uu8_U4YI/AAAAAAAAANE/DIJad4t4cBQ/s1600/england_flag_pic.jpg');
         background-size: cover;
-        @include border-radius(50%);
-        @include transition(all $team-selector-carousel-anim-time);
+        background-position: 50%;
+        box-shadow: 0 0 30px -8px $black inset;
 
         &::before {
             content: '';
             display: block;
             padding-bottom: 100%;
         }
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -20%;
+            bottom: -20%;
+            left: 100%;
+            box-shadow: 0 0 140px 40px #fff;
+        }
+    }
+
+    .team-name {
+        color: $white;
+        padding: 0.2em 0.4em 0.1em;
+        font-size: $h2-font-size;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        vertical-align: middle;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            opacity: 0.6;
+            z-index: -1;
+        }
+    }
+
+    .ticker {
+        width: 15%;
+        background: $off-white;
+        border: 1px solid black;
+        position: relative;
+    }
+
+    .ticker-inner {
+        height: 100px;
+        top: 50%;
+        margin-top: -50px;
+        left: 0;
+        right: 0;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    @media screen and (min-width: 340px) {
+
+        .team {
+            padding-left: 40%;
+        }
+    }
+}
+
+.ticker {
+
+    .value {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 0.2em 0;
     }
 }

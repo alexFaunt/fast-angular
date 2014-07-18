@@ -1,10 +1,43 @@
 
-<div class="team-selector-carousel">
-    <div class="slide-wrapper">
-        <div class="slide" data-ng-repeat="index in activeSlides">
-            <div class="image" style="background-image:url('{{slides[index].image}}')"></div>
-            <header>{{slides[index].title}}</header>
-            <p>{{slides[index].body}}</p>
+<div class="team-selector-carousel flex-row">
+    <div class="teams-container grow">
+        <div class="teams">
+            <div class="team" data-ng-repeat="index in activeTeams">
+                <div class="image" style="background-image:url('{{teams[index].image}}')"></div>
+                <span class="team-name">{{teams[index].name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="ticker static">
+        <div class="ticker-inner">
+            <div class="value-wrapper">
+                <span class="value">A</span>
+                <span class="value">B</span>
+                <span class="value">C</span>
+                <span class="value">D</span>
+                <span class="value">E</span>
+                <span class="value">F</span>
+                <span class="value">G</span>
+                <span class="value">H</span>
+                <span class="value">I</span>
+                <span class="value">J</span>
+                <span class="value">K</span>
+                <span class="value">L</span>
+                <span class="value">M</span>
+                <span class="value">N</span>
+                <span class="value">O</span>
+                <span class="value">P</span>
+                <span class="value">Q</span>
+                <span class="value">R</span>
+                <span class="value">S</span>
+                <span class="value">T</span>
+                <span class="value">U</span>
+                <span class="value">V</span>
+                <span class="value">W</span>
+                <span class="value">X</span>
+                <span class="value">Y</span>
+                <span class="value">Z</span>
+            </div>
         </div>
     </div>
 </div>

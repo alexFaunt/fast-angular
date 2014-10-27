@@ -9,9 +9,10 @@
  // use the trigger events
  // expose getters and setters with/without animation
  // sort out edge cases - if you lob it at one end, needs to smash into the end, not gracefully go there
- // snap to list items
+ // When snapping to a nearby edge - set time time to be better than just amplitude, want it to be a bit slower nearer 0 than nearer animTime
  // Check the recursion shit - probs not good.
  // calculate max from elements
+ // Lazy freeaking loading.
 
 
 ;(function (window, angular) {
@@ -35,10 +36,12 @@
             var max = -800;
             var item = 200;
             var newOffset;
-            var time = 100;
+            var trackTime = 100;
 
             var scrollingListIndex = 0;
             var originalClick;
+
+            var animTime;
 
 
             // Need to make this a global things
@@ -80,11 +83,12 @@
                 pressed = true;
                 touchStartPageX = e.touches[0].pageY;
                 carouselWrapper = $element[0].querySelector('.teams');
+                animTime = 200;
 
                 delta = 0;
                 velocity = 0;
                 clearInterval(ticker);
-                ticker = setInterval(track, time);
+                ticker = setInterval(track, trackTime);
 
                 trackLast = 0;
                 trackChange = 0;
@@ -111,7 +115,7 @@
                 trackChange = delta - trackLast;
                 trackLast = delta;
 
-                var v = 1000 * trackChange / time;
+                var v = 1000 * trackChange / trackTime;
                 velocity = 0.8 * v + 0.2 * velocity;
             };
 
@@ -148,7 +152,8 @@
                     amplitude = max - newOffset;
                 }
 
-
+                animTime = Math.abs(amplitude) < item ? Math.abs(amplitude) : animTime;
+                //console.log(animTime);
 
                 autoScroll();
             };
@@ -158,7 +163,7 @@
                     return;
                 }
                 elapsed = Date.now() - timestamp;
-                delta = -amplitude * Math.exp(-elapsed / 200);
+                delta = -amplitude * Math.exp(-elapsed / animTime);
                 // /console.log('amplitude',amplitude,'delta',delta,'target',target,'newOffset',newOffset,'autoscrolloffset', (target + delta));
                 if (delta > 1 || delta < -1) {
                     updateScroll(target + delta);
